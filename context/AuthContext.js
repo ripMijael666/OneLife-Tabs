@@ -1,48 +1,65 @@
 import createDataContext from './createDataContext';
+import * as SecureStore from 'expo-secure-store';
 
 const authReducer = (state, action) => {
   switch (action.type) {
-    case 'signout':
-      return {token: null, email: ''};
-    case 'signin':
-    case 'signup':
+    case 'RESTORE_TOKEN':
       return {
-        token: action.payload.token,
-        email: action.payload.email,
+        userToken: action.token,
+        isLoading: false,
+      };
+    case 'SIGN_IN':
+      return {
+        isSignout: false,
+        userToken: action.token,
+      };
+    case 'SIGN_OUT':
+      return {
+        isSignout: true,
+        userToken: null,
       };
     default:
       return state;
   }
 };
 
-const signup = dispatch => {
+const signUp = dispatch => {
   return ({email, password}) => {
-    console.log('Signup');
+    dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
   };
 };
 
 const signIn = dispatch => {
-  return ({email, password}) => {
-    // Do some API Request here
-    console.log('Signin');
-    dispatch({
-      type: 'signin',
-      payload: {
-        token: 'some access token here',
-        email,
-      },
-    });
+  return async ({email, password}) => {
+    console.log(email);
+    console.log(password);
+    await SecureStore.setItemAsync('email', email);
+    await SecureStore.setItemAsync('password', password);
+    await SecureStore.setItemAsync('userToken', 'dummy-auth-token');
+    dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });    
   };
 };
 
-const signout = dispatch => {
-  return () => {
-    dispatch({type: 'signout'});
+const signOut = dispatch => {
+  return async () => {
+    await SecureStore.deleteItemAsync('userToken');
+    dispatch({ type: 'SIGN_OUT' });
+  };
+};
+
+const restoreToken = dispatch => {
+  return ({userToken}) => {
+    console.log('UserToken: ' + userToken);
+    dispatch({ type: 'RESTORE_TOKEN', token: userToken });
   };
 };
 
 export const {Provider, Context} = createDataContext(
   authReducer,
-  {signIn, signout, signup},
-  {token: null, email: ''},
+  {signIn, signOut, signUp, restoreToken},
+  {
+    isLoading: true,
+    isSignout: false,
+    userToken: null,
+  },
 );

@@ -98,7 +98,6 @@ function CiudadScreen() {
     );
 }
 
-
 const styles = StyleSheet.create({
     ciudad: {
         flex: 1,

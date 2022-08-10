@@ -15,7 +15,7 @@ import { useFonts,
     Dosis_800ExtraBold 
   } from '@expo-google-fonts/dosis'
 
-const Pdf = () => {
+const PdfScreen = () => {
     
   let [fontsLoaded] = useFonts({
     Dosis_200ExtraLight,
@@ -74,4 +74,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Pdf
+export default PdfScreen

@@ -3,19 +3,19 @@ import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import ImagenRutinas from '../components/ImagenRutinas'
+import ListImageRutinas from '../components/ListImageRutinas'
 
-// import { useFonts,
-//     Dosis_200ExtraLight,
-//     Dosis_300Light,
-//     Dosis_400Regular,
-//     Dosis_500Medium,
-//     Dosis_600SemiBold,
-//     Dosis_700Bold,
-//     Dosis_800ExtraBold 
-//   } from '@expo-google-fonts/dosis'
+import { useFonts,
+    Dosis_200ExtraLight,
+    Dosis_300Light,
+    Dosis_400Regular,
+    Dosis_500Medium,
+    Dosis_600SemiBold,
+    Dosis_700Bold,
+    Dosis_800ExtraBold 
+  } from '@expo-google-fonts/dosis'
 
-const Rutinas = () => {
+const RutinasScreen = () => {
 
     const rutinasImage = [
         {
@@ -46,7 +46,7 @@ const Rutinas = () => {
                 }
                 data = { rutinasImage }
                 keyExtractor = { (item) => item.id}
-                renderItem = { ({ item }) => <ImagenRutinas item = { item } /> }
+                renderItem = { ({ item }) => <ListImageRutinas item = { item } /> }
                 ItemSeparatorComponent = { () => <View 
                     style = {{ 
                         marginVertical: 15, 
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
         paddingVertical: 27,
         fontSize: 55,
         color: '#fff',
-        // fontFamily: 'Dosis_400Regular'
+        fontFamily: 'Dosis_400Regular'
     }
 });
 
-export default Rutinas
+export default RutinasScreen

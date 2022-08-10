@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 
 
 
-const ImagenRutinas = (item) => {
+const ListImage = (item) => {
     const navigation = useNavigation();
     const { image } = item
      const COLORS = {
@@ -29,13 +29,13 @@ const ImagenRutinas = (item) => {
                     justifyContent:'center',
                     textAlign: 'center',
                 }}
-                onPress={() => navigation.navigate("Pdf")}
+                onPress={() => navigation.navigate("PdfScreen")}
             >
                 <View
                     style={{
                         alignContent: 'center',
                         alignItems: 'center',
-                        // fontFamily: 'Dosis_200ExtraLight'
+                        fontFamily: 'Dosis_200ExtraLight'
                     }}
                 >
                     <Image
@@ -48,7 +48,7 @@ const ImagenRutinas = (item) => {
                         style={{
                             color: COLORS.white,
                             textAlign: 'left',
-                            // fontFamily: 'Dosis_200ExtraLight'
+                            fontFamily: 'Dosis_200ExtraLight'
                             
                         }}
                     >
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ImagenRutinas
+export default ListImage
