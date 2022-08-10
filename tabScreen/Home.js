@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import {Context as AuthContext} from '../context/AuthContext';
+
 import { 
     View, 
     Text, 
@@ -31,6 +33,7 @@ import {BarChart} from "react-native-chart-kit";
 import { Dimensions } from "react-native";
 
 function Home() {
+  const { signOut } = React.useContext(AuthContext);
   const navigation = useNavigation();
 
   const listausuarios = () => {
@@ -203,12 +206,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#1C1B1B',
   },
   encabezado: {
-    display: 'grid',
-    gridTemplateColumns: '50% 50%' ,
+    flexDirection: 'row',
+    // display: 'grid',
+    // gridTemplateColumns: '50% 50%' ,
   },
   body: {
-    display: 'grid',
-    gridTemplateColumns: '100%'
+    flex: 1,
+    // display: 'grid',
+    // gridTemplateColumns: '100%'
   },
   titulo: {
     paddingHorizontal: 35,
@@ -249,10 +254,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   medidor: {
-    display: 'grid',
+    // display: 'grid',
     marginTop: 25,
     // marginBottom: '9pt',
-    gridTemplateColumns: '70% 30%'
+    // gridTemplateColumns: '70% 30%'
   },
   rendimiento: {
     color: '#fff',
