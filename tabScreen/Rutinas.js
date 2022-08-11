@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import ImagenRutinas from '../components/ImagenRutinas'
+// import ImagenRutinas from '../components/ImagenRutinas'
 
 // import { useFonts,
 //     Dosis_200ExtraLight,
@@ -46,7 +46,7 @@ const Rutinas = () => {
                 }
                 data = { rutinasImage }
                 keyExtractor = { (item) => item.id}
-                renderItem = { ({ item }) => <ImagenRutinas item = { item } /> }
+                renderItem = { ({ item }) => <View item = { item } /> }
                 ItemSeparatorComponent = { () => <View 
                     style = {{ 
                         marginVertical: 15, 

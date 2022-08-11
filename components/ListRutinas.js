@@ -7,15 +7,15 @@ import {
 } from "react-native";
 import { useNavigation } from '@react-navigation/native'
 
-import { useFonts,
-    Dosis_200ExtraLight,
-    Dosis_300Light,
-    Dosis_400Regular,
-    Dosis_500Medium,
-    Dosis_600SemiBold,
-    Dosis_700Bold,
-    Dosis_800ExtraBold 
-  } from '@expo-google-fonts/dosis'
+// import { useFonts,
+//     Dosis_200ExtraLight,
+//     Dosis_300Light,
+//     Dosis_400Regular,
+//     Dosis_500Medium,
+//     Dosis_600SemiBold,
+//     Dosis_700Bold,
+//     Dosis_800ExtraBold 
+//   } from '@expo-google-fonts/dosis'
 
 const ListRutinas = (item) => {
     const navigation = useNavigation();
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         width: 130,
         height: 69,
         color: '#FFF843',
-        fontFamily: 'Dosis_200ExtraLight',
+        // fontFamily: 'Dosis_200ExtraLight',
     }
 });
 

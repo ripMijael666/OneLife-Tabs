@@ -1,72 +1,64 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { AntDesign } from '@expo/vector-icons';
+const Stack = createNativeStackNavigator();
 
-import Rutinas from './tabScreen/Rutinas';
-import Home from './tabScreen/Home';
-import Sesiones from './components/Sesiones';
+function Navigation() {
 
-const Tab = createBottomTabNavigator();
+    const {state, restoreToken} = React.useContext(AuthContext);
+    console.log(state);
 
-function MyTabs() {
+    React.useEffect(() => {
+        const bootstrapAsync = async () => {
+          let userToken;
+          try {
+            userToken = await SecureStore.getItemAsync('userToken');
+          } catch (e) {
+          }
+          restoreToken({userToken});
+        };
+        bootstrapAsync();
+      },[]
+    );
+
     return (
-        <Tab.Navigator
-            initialRouteName="Home"
-            screenOptions={{
-                tabBarActiveTintColor: '#FFF843',
-                tabBarInactiveTintColor:'#fff',
-                tabBarActiveBackgroundColor: '#000000',
-                tabBarInactiveBackgroundColor:'#000000',
-            }}
-        >
 
-            <Tab.Screen 
-                name="Home" 
-                component={Home}
-                options={{
-                    tabBarLabel: 'Home',
-                    tabBarIcon: ({ color, size }) => (
-                        <AntDesign 
-                            name="Home" 
-                            size={20}
-                            color="#fff" 
-                        />
-                    ),
-                        headerShown: false
-                }}
-            />
-            <Tab.Screen 
-                name="Rutinas" 
-                component={Rutinas}
-                options={{
-                    tabBarLabel: 'Rutinas',
-                    tabBarIcon: ({ color, size }) => (
-                        <AntDesign 
-                            name="Rutinas" 
-                            size={20}
-                            color="#fff" 
-                        />
-                    ),
-                        headerShown: false
-                }}
-            />
-            <Tab.Screen 
-                name="Sesiones" 
-                component={Sesiones}
-                options={{
-                    tabBarLabel: 'Sesiones',
-                    tabBarIcon: ({ color, size }) => (
-                        <AntDesign 
-                            name="Sesiones" 
-                            size={20}
-                            color="#fff" 
-                        />
-                    ),
-                        headerShown: false
-                }}
-            />
-        </Tab.Navigator>
-    )
+            <Stack.Navigator
+              screenOptions={{
+              headerShown: false,
+              }} >
+              {state.isLoading ? (
+                  <Stack.Screen
+                      name="Splash"
+                      component={Splash}
+                  />
+              ) : state.userToken == null ? (
+                  <>
+                      <Stack.Screen
+                        name="CiudadScreen"
+                        component={CiudadScreen}
+                      />
+                      <Stack.Screen
+                          name="LogIn"
+                          component={SignInScreen}
+                      />
+                      {/* <Stack.Screen
+                        name="Home"
+                        component={Home}
+                      /> */}
+                  </>
+              ) : (
+                  <Stack.Screen
+                    name="Home"
+                    component={Home}
+                  />
+              )}
+            </Stack.Navigator>
+
+    );
 }
 
-export default MyTabs;
+export default () => {
+    return (
+      <AuthProvider>
+        <Navigation />
+      </AuthProvider>
+    );
+};

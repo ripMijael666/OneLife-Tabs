@@ -48,7 +48,7 @@ function CiudadScreen() {
                     style={{ 
                       width: 200 , 
                       height: 94 ,   
-                      marginVertical: 80
+                      marginVertical: 140
                     }}
                         source={require("../assets/grupo_7.png")}
                 ></Image>

@@ -10,30 +10,30 @@ import {
 } from "react-native";
 import SesionesProps from "../Sesiones/SesionesProps";
 
-import { useFonts,
-  Dosis_200ExtraLight,
-  Dosis_300Light,
-  Dosis_400Regular,
-  Dosis_500Medium,
-  Dosis_600SemiBold,
-  Dosis_700Bold,
-  Dosis_800ExtraBold 
-} from '@expo-google-fonts/dosis'
+// import { useFonts,
+//   Dosis_200ExtraLight,
+//   Dosis_300Light,
+//   Dosis_400Regular,
+//   Dosis_500Medium,
+//   Dosis_600SemiBold,
+//   Dosis_700Bold,
+//   Dosis_800ExtraBold 
+// } from '@expo-google-fonts/dosis'
 
 import * as SplashScreen from "expo-splash-screen"
 SplashScreen.preventAutoHideAsync();
 
 const SesionesScreen = ({navigation}) => {
 
-  let [fontsLoaded] = useFonts({
-    Dosis_200ExtraLight,
-    Dosis_300Light,
-    Dosis_400Regular,
-    Dosis_500Medium,
-    Dosis_600SemiBold,
-    Dosis_700Bold,
-    Dosis_800ExtraBold 
-  });
+  // let [fontsLoaded] = useFonts({
+  //   Dosis_200ExtraLight,
+  //   Dosis_300Light,
+  //   Dosis_400Regular,
+  //   Dosis_500Medium,
+  //   Dosis_600SemiBold,
+  //   Dosis_700Bold,
+  //   Dosis_800ExtraBold 
+  // });
 
   const listaSesiones = [
     {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create ({
     paddingVertical: 27,
     fontSize: 55,
     color: '#fff',
-    fontFamily: 'Dosis_400Regular'
+    // fontFamily: 'Dosis_400Regular'
   },
 
   comprar: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create ({
     marginTop: '5%',
     marginBottom: 15,
     fontSize: 20,
-    fontFamily: 'Dosis_300Light',
+    // fontFamily: 'Dosis_300Light',
     borderTopColor: '#1C1B1B'
   },
 

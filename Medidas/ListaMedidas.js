@@ -52,30 +52,36 @@ const ListaMedidas = () => {
       }}
     >
 
-      {/* <View 
+
+
+
+      <View 
         style={styles.title}
       >
         <TouchableOpacity
           onPress={() => navigation.navigate("HomeScreen")}
         >
-          <Ionicons 
+          {/* <Ionicons 
             style={styles.icono}
             name="chevron-back" 
             size={36} 
             color="#FFF843"
-          />
+          /> */}
         </TouchableOpacity>
         <Text 
           style={styles.titulo}
         >
           Medidas
         </Text>
-      </View> */}
+      </View>
+
+
+
 
       <FlatList
         data = {listausuarios}
         keyExtractor = {(item) => item.id}
-        renderItem = {({item, index}) => <Medidas item = {item}/>}
+        renderItem = {({item}) => <Medidas item = {item}/>}
         ItemSeparatorComponent = { () => <View 
           style = {{ 
               marginVertical: 10, 
@@ -98,15 +104,15 @@ const styles = StyleSheet.create ({
     backgroundColor: '#1C1B1B',
   },
   title:{
-    display: 'grid',
-    gridTemplateColumns: '100%' 
+    // display: 'grid',
+    // gridTemplateColumns: '100%' 
   },
   titulo: {
     paddingHorizontal: 32,
     paddingVertical: 27,
     fontSize: 55,
     color: '#fff',
-    fontFamily: 'Dosis_400Regular'
+    // fontFamily: 'Dosis_400Regular'
   }
 });
 

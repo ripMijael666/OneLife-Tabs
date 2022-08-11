@@ -57,8 +57,8 @@ function Home() {
             >
             <Image
               style={{ 
-                width: 105 , 
-                height: 50 ,   
+                width: 112 , 
+                height: 53 ,   
                 marginVertical: 40,
                 // marginTop: '60pt',
                 marginLeft: 40, 
@@ -73,10 +73,10 @@ function Home() {
           >
             <Image
               style={{ 
-                width: 94,
-                height: 94,
+                width: 90,
+                height: 90,
                 marginTop: 40,
-                marginRight: 40,
+                marginRight: 30
               }}
                 source={require("../assets/img/perfil.png")}
             />
@@ -206,7 +206,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#1C1B1B',
   },
   encabezado: {
-    flexDirection: 'row',
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
+    marginTop: 55
     // display: 'grid',
     // gridTemplateColumns: '50% 50%' ,
   },
@@ -218,7 +220,7 @@ const styles = StyleSheet.create({
   titulo: {
     paddingHorizontal: 35,
     paddingVertical: -130,
-    fontSize: 48,
+    fontSize: 55,
     color: '#fff',
     // fontFamily: 'Dosis_400Regular'
   },
@@ -277,7 +279,7 @@ const styles = StyleSheet.create({
     textAlign: 'left'
   },
   end: {
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
   },
 });
 

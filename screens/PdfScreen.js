@@ -5,27 +5,27 @@ import { WebView } from 'react-native-webview';
 
 import { useNavigation } from "@react-navigation/native";
 
-import { useFonts,
-    Dosis_200ExtraLight,
-    Dosis_300Light,
-    Dosis_400Regular,
-    Dosis_500Medium,
-    Dosis_600SemiBold,
-    Dosis_700Bold,
-    Dosis_800ExtraBold 
-  } from '@expo-google-fonts/dosis'
+// import { useFonts,
+//     Dosis_200ExtraLight,
+//     Dosis_300Light,
+//     Dosis_400Regular,
+//     Dosis_500Medium,
+//     Dosis_600SemiBold,
+//     Dosis_700Bold,
+//     Dosis_800ExtraBold 
+//   } from '@expo-google-fonts/dosis'
 
 const PdfScreen = () => {
     
-  let [fontsLoaded] = useFonts({
-    Dosis_200ExtraLight,
-    Dosis_300Light,
-    Dosis_400Regular,
-    Dosis_500Medium,
-    Dosis_600SemiBold,
-    Dosis_700Bold,
-    Dosis_800ExtraBold 
-  });
+//   let [fontsLoaded] = useFonts({
+//     Dosis_200ExtraLight,
+//     Dosis_300Light,
+//     Dosis_400Regular,
+//     Dosis_500Medium,
+//     Dosis_600SemiBold,
+//     Dosis_700Bold,
+//     Dosis_800ExtraBold 
+//   });
     return (
         <View
             style={styles.container}
@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
         paddingVertical: 27,
         fontSize: 55,
         color: '#fff',
-        fontFamily: 'Dosis_400Regular'
+        // fontFamily: 'Dosis_400Regular'
     },
     subtitulo: {
         color: '#FFF843',
-        fontFamily: 'Dosis_200ExtraLight',
+        // fontFamily: 'Dosis_200ExtraLight',
         padding: '7%',
         fontSize: 18,
         textAlign: 'left',

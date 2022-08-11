@@ -67,8 +67,8 @@ const styles = StyleSheet.create ({
     backgroundColor: '#1C1B1B',
   },
   informacion: {
-    display: 'grid',
-    gridTemplateColumns: '45% 55%' 
+    // display: 'grid',
+    // gridTemplateColumns: '45% 55%' 
   },
   start: {
     textAlign: 'star',
@@ -79,38 +79,38 @@ const styles = StyleSheet.create ({
   fecha: {
     marginLeft: 30,
     color: '#FFF843',
-    marginTop: '57',
+    marginTop: 57,
     fontSize: 18,
-    fontFamily: 'Dosis_200ExtraLight'
+    // fontFamily: 'Dosis_200ExtraLight'
   },
   supervisor: {
     marginLeft: 30,
     color: '#FFF843',
     fontSize: 18,
-    fontFamily: 'Dosis_200ExtraLight'
+    // // fontFamily: 'Dosis_200ExtraLight'
   },
   peso: {
     marginLeft: 30,
     marginTop: 9,
     color: '#FFF843',
-    fontSize: '300%',
-    fontFamily: 'Dosis_200ExtraLight'
+    fontSize: 45,
+    // fontFamily: 'Dosis_200ExtraLight'
   },
   brazo: {
     marginTop: 12,
     color: '#fff',
     fontSize: 18,
-    fontFamily: 'Dosis_200ExtraLight'
+    // fontFamily: 'Dosis_200ExtraLight'
   },
   pecho: {
     color: '#fff',
     fontSize: 18,
-    fontFamily: 'Dosis_200ExtraLight'
+    // fontFamily: 'Dosis_200ExtraLight'
   },
   cintura: {
     color: '#fff',
     fontSize: 18,
-    fontFamily: 'Dosis_200ExtraLight'
+    // fontFamily: 'Dosis_200ExtraLight'
   },
 });
 

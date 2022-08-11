@@ -5,15 +5,15 @@ import { useNavigation } from "@react-navigation/native";
 
 import ListImageRutinas from '../components/ListImageRutinas'
 
-import { useFonts,
-    Dosis_200ExtraLight,
-    Dosis_300Light,
-    Dosis_400Regular,
-    Dosis_500Medium,
-    Dosis_600SemiBold,
-    Dosis_700Bold,
-    Dosis_800ExtraBold 
-  } from '@expo-google-fonts/dosis'
+// import { useFonts,
+//     Dosis_200ExtraLight,
+//     Dosis_300Light,
+//     Dosis_400Regular,
+//     Dosis_500Medium,
+//     Dosis_600SemiBold,
+//     Dosis_700Bold,
+//     Dosis_800ExtraBold 
+//   } from '@expo-google-fonts/dosis'
 
 const RutinasScreen = () => {
 
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         paddingVertical: 27,
         fontSize: 55,
         color: '#fff',
-        fontFamily: 'Dosis_400Regular'
+        // fontFamily: 'Dosis_400Regular'
     }
 });
 

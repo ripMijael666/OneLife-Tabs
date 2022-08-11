@@ -5,26 +5,26 @@ import { useNavigation } from "@react-navigation/native";
 
 import ListRutinas from "../components/ListRutinas";
 
-import { useFonts,
-    Dosis_200ExtraLight,
-    Dosis_300Light,
-    Dosis_400Regular,
-    Dosis_500Medium,
-    Dosis_600SemiBold,
-    Dosis_700Bold,
-    Dosis_800ExtraBold 
-  } from '@expo-google-fonts/dosis'
+// import { useFonts,
+//     Dosis_200ExtraLight,
+//     Dosis_300Light,
+//     Dosis_400Regular,
+//     Dosis_500Medium,
+//     Dosis_600SemiBold,
+//     Dosis_700Bold,
+//     Dosis_800ExtraBold 
+//   } from '@expo-google-fonts/dosis'
 
 function FlatListScreen() {
-    let [fontsLoaded] = useFonts({
-        Dosis_200ExtraLight,
-        Dosis_300Light,
-        Dosis_400Regular,
-        Dosis_500Medium,
-        Dosis_600SemiBold,
-        Dosis_700Bold,
-        Dosis_800ExtraBold 
-    });
+    // let [fontsLoaded] = useFonts({
+    //     Dosis_200ExtraLight,
+    //     Dosis_300Light,
+    //     Dosis_400Regular,
+    //     Dosis_500Medium,
+    //     Dosis_600SemiBold,
+    //     Dosis_700Bold,
+    //     Dosis_800ExtraBold 
+    // });
 
     const rutinas = [
         {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     paddingVertical: 27,
     fontSize: 55,
     color: '#fff',
-    fontFamily: 'Dosis_400Regular'
+    // fontFamily: 'Dosis_400Regular'
   }
 });
 
