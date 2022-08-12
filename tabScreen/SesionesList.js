@@ -8,7 +8,8 @@ import {
   FlatList, 
   ScrollView 
 } from "react-native";
-import Sesiones from "../components/Sesiones";
+// import Sesiones from "../components/Sesiones";
+import SesionesProps from "../Sesiones/SesionesProps";
 
 // import { useFonts,
 //   Dosis_200ExtraLight,
@@ -23,7 +24,7 @@ import Sesiones from "../components/Sesiones";
 import * as SplashScreen from "expo-splash-screen"
 SplashScreen.preventAutoHideAsync();
 
-const SesionesScreen = ({navigation}) => {
+const SesionesList = ({navigation}) => {
 
   // let [fontsLoaded] = useFonts({
   //   Dosis_200ExtraLight,
@@ -84,7 +85,7 @@ const SesionesScreen = ({navigation}) => {
       <FlatList
       data = {listaSesiones}
       keyExtractor = {(item) => item.id}
-      renderItem = {({item}) => <Sesiones item = {item}/>}
+      renderItem = {({item}) => <SesionesProps item = {item}/>}
       />
       </TouchableOpacity> 
       </ScrollView>
@@ -94,7 +95,7 @@ const SesionesScreen = ({navigation}) => {
     
 }
 
-export default SesionesScreen;
+export default SesionesList;
 
 const styles = StyleSheet.create ({
   container: {

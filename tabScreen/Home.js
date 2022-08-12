@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     textAlign: 'left'
   },
   end: {
-    alignItems: 'flex-end',
+    alignItems: 'flex-end'
   },
 });
 

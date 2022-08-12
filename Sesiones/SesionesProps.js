@@ -10,9 +10,6 @@ const SesionesProps = ({item}) => {
     <SafeAreaView 
       style = {styles.container}
     >
-      <View 
-        style={styles.informacion}
-      >
         <View 
           style={styles.start}
         >
@@ -50,7 +47,6 @@ const SesionesProps = ({item}) => {
             {sesion}
           </Text>
         </View>
-      </View>
     </SafeAreaView>
   )  
 }
@@ -61,11 +57,6 @@ const styles = StyleSheet.create ({
   container: {
     flex: 1,
     backgroundColor: '#1C1B1B',
-  },
-  informacion: {
-    flex: 1,
-      // display: 'grid',
-      // gridTemplateColumns: '60% 40%' 
   },
   start: {
     textAlign: 'star',

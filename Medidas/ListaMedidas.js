@@ -11,6 +11,7 @@ import { FlatList } from 'react-native'
 import Medidas from './Medidas'
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import Home from "../tabScreen/Home";
 
 const ListaMedidas = () => {
   const navigation = useNavigation();
@@ -47,17 +48,17 @@ const ListaMedidas = () => {
     ]
   return (
     <SafeAreaView 
-      style={styles.container}
+      style={{
+        backgroundColor: '#1C1B1B',
+        width: '100%',
+        height: '100%'
+      }}
     >
-      <ScrollView
-        style={styles.title}
-      >
-        <View 
-          style= {{
-            flexDirection: 'row', 
-            justifyContent: 'space-between',
-          }}
-        >
+
+
+
+      {/* <ScrollView>
+        <View>
           <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
           >
@@ -68,34 +69,30 @@ const ListaMedidas = () => {
           >
             Medidas
           </Text>
-        </View>
+        </View> */}
       
 
 
 
 
-        <FlatList
-          data = {listausuarios}
-          keyExtractor = {(item) => item.id}
-          renderItem = {({item}) => <Medidas item = {item}/>}
-          ItemSeparatorComponent = { () => <View 
-            style = {{ 
-                marginVertical: 10, 
-            }} />}
-        />
-      </ScrollView>
+      <FlatList
+        data = {listausuarios}
+        keyExtractor = {(item) => item.id}
+        renderItem = {({item}) => <Medidas item = {item}/>}
+        ItemSeparatorComponent = { () => <View 
+          style = {{ 
+              marginVertical: 10, 
+          }} />}
+      />
+      {/* </ScrollView> */}
     </SafeAreaView>  
   )  
 };
 
 const styles = StyleSheet.create ({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: '#1C1B1B',
-    width: '100%',
-    height: '100%',
-    flexDirection: 'row', 
-    justifyContent: 'space-between',
   },
   titulo: {
     paddingHorizontal: 32,

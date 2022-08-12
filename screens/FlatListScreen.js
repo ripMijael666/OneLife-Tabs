@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from "react-na
 import { FlatList } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import ListRutinas from "../components/ListRutinas";
+import ListRutinas from '../components/ListRutinas'
 
 // import { useFonts,
 //     Dosis_200ExtraLight,
@@ -16,6 +16,7 @@ import ListRutinas from "../components/ListRutinas";
 //   } from '@expo-google-fonts/dosis'
 
 function FlatListScreen() {
+    const navigation = useNavigation();
     // let [fontsLoaded] = useFonts({
     //     Dosis_200ExtraLight,
     //     Dosis_300Light,

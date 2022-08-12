@@ -3,8 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-// import ImagenRutinas from '../components/ImagenRutinas'
-
+import PdfScreen from '../screens/PdfScreen'
 // import { useFonts,
 //     Dosis_200ExtraLight,
 //     Dosis_300Light,
@@ -46,17 +45,11 @@ const Rutinas = () => {
                 }
                 data = { rutinasImage }
                 keyExtractor = { (item) => item.id}
-                renderItem = { ({ item }) => <View item = { item } /> }
+                renderItem = { ({ item }) => <PdfScreen item = { item } /> }
                 ItemSeparatorComponent = { () => <View 
                     style = {{ 
                         marginVertical: 15, 
                     }} />}
-                ListHeaderComponent = { () => 
-                    <Text
-                        style = {styles.titulo}>
-                            Rutinas
-                    </Text>
-                }
             />
         </View>
     )

@@ -70,12 +70,14 @@ const styles = StyleSheet.create ({
     flex: 1,
     // display: 'grid',
     // gridTemplateColumns: '45% 55%' 
+    flexDirection: 'row',
   },
   start: {
     textAlign: 'star',
   },
   end: {
-    alignItems: 'start',
+    alignItems: 'flex-start',
+    marginLeft: 50
   },
   fecha: {
     marginLeft: 30,

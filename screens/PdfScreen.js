@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-import { WebView } from 'react-native-webview';
+// import { WebView } from 'react-native-webview';
 
-import { useNavigation } from "@react-navigation/native";
+
 
 // import { useFonts,
 //     Dosis_200ExtraLight,
@@ -31,18 +31,20 @@ const PdfScreen = () => {
             style={styles.container}
         >
             <Text
-                style={styles.titulo}
-            >
-                Rutinas
-            </Text>
-            <Text
                 style={styles.subtitulo}
             >
                 Pecho • Apertuara de máquina contractora
             </Text>
 
             <View>
-                <WebView source={{ uri:"https://google.com" }} />
+                {/* <WebView source={{ uri:"https://google.com" }} /> */}
+                <Text
+                    style={{
+                        color: '#fff'
+                    }}
+                >
+                    pdf
+                </Text>
             </View>
 
         </View>
@@ -54,13 +56,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#1C1B1B',
         width: '100%',
         height: '100%',
-    },
-    titulo: {
-        paddingHorizontal: 32,
-        paddingVertical: 27,
-        fontSize: 55,
-        color: '#fff',
-        // fontFamily: 'Dosis_400Regular'
     },
     subtitulo: {
         color: '#FFF843',

@@ -10,14 +10,15 @@ import { useNavigation } from '@react-navigation/native'
 
 
 
+
 const ListImage = (item) => {
     const navigation = useNavigation();
     const { image } = item
-     const COLORS = {
-        white: '#FFFFFF',
-        red: '#E90716',
+    //  const COLORS = {
+    //     white: '#FFFFFF',
+    //     red: '#E90716',
       
-      }
+    //   }
     // console.log(item);
     return (
         <View
@@ -29,7 +30,7 @@ const ListImage = (item) => {
                     justifyContent:'center',
                     textAlign: 'center',
                 }}
-                onPress={() => navigation.navigate("PdfScreen")}
+                onPress={() => navigation.navigate("Rutinas")}
             >
                 <View
                     style={{
@@ -46,7 +47,7 @@ const ListImage = (item) => {
                     </Image>
                     <Text
                         style={{
-                            color: COLORS.white,
+                            color: '#fff',
                             textAlign: 'left',
                             // fontFamily: 'Dosis_200ExtraLight'
                             
@@ -76,6 +77,13 @@ const styles = StyleSheet.create({
         height: 220,
         borderRadius: 8,
     },
+    titulo: {
+        paddingHorizontal: 32,
+        paddingVertical: 27,
+        fontSize: 55,
+        color: '#fff',
+        // fontFamily: 'Dosis_400Regular'
+      }
 });
 
 export default ListImage

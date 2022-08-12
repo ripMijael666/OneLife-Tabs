@@ -14,9 +14,17 @@ import {Icon} from 'react-native-elements';
 import LogIn from './screens/LogIn';
 import CiudadScreen from './screens/CiudadScreen.js';
 import Home from './tabScreen/Home.js';
-import ListaMedidas from './Medidas/ListaMedidas'
-// import SesionesScreen from './screens/SesionesScreen.js';
-
+import ListaMedidas from './Medidas/ListaMedidas';
+import FlatListScreen from './screens/FlatListScreen.js';
+import RutinasScreen from './screens/RutinasScreen.js';
+import PdfScreen from './screens/PdfScreen.js';
+import Rutinas from './tabScreen/Rutinas.js';
+import ListRutinas from './components/ListRutinas.js';
+import SesionesProps from './Sesiones/SesionesProps.js';
+import SesionesScreen from './screens/SesionesScreen.js';
+import PlanMensual from './Sesiones/PlanMensual.js';
+import PlanesMensuales from './Sesiones/PlanesMensuales.js';
+import ComprarPlan from './Sesiones/ComprarPlan.js';
 
 function Splash() {
   return (
@@ -103,17 +111,17 @@ function HomeFlow() {
           let iconName;
 
           switch (route.name) {
-            case 'Tab1':
+            case 'Home':
               iconName = focused
                 ? 'ios-checkbox'
                 : 'ios-checkbox-outline';
               break;
-            case 'Tab2':
+            case 'Rutinas':
               iconName = focused
               ? 'ios-add-circle'
               : 'ios-add-circle-outline';
               break;
-            case 'Tab3':
+            case 'Sesiones':
               iconName = focused
                 ? 'ios-information-circle'
                 : 'ios-information-circle-outline';
@@ -129,27 +137,26 @@ function HomeFlow() {
 
       >
       <Tab.Screen
-        name="Tab1"
+        name="Home"
         component={Home}
         options={{
           headerShown: false,
         }}
       />
       <Tab.Screen
-        name="Tab2"
-        component={Home}
+        name="Rutinas"
+        component={FlatListScreen}
         options={{
           headerShown: false,
         }}
       />
-        {/* <Tab.Screen
-            name="Tab3"
-            component={LogIn}
-        /> */}
-        {/* <Tab.Screen
-            name="Tab3"
-            component={SesionesScreen}
-        /> */}
+        <Tab.Screen
+        name="Sesiones"
+        component={SesionesScreen}
+        options={{
+          headerShown: false,
+        }}
+        />
     </Tab.Navigator>
   );
 }
@@ -178,12 +185,10 @@ function App() {
     return (
         <NavigationContainer>
 
-            <Stack.Navigator
-              screenOptions={{
-              headerShown: false,
-              }} >
+            <Stack.Navigator>
               {state.isLoading ? (
                   <Stack.Screen
+                      options={{headerShown: false}}
                       name="Splash"
                       component={Splash}
                   />
@@ -206,12 +211,85 @@ function App() {
 
               )}
 
-<Stack.Screen
-                  options={{headerShown: false}}
+                <Stack.Screen
                   name="ListaMedidas"
                   component={ListaMedidas}
+                  options={{
+                    headerStyle: {
+                      backgroundColor: '#1C1B1B',
+                    },
+                    headerTitleStyle: {
+                      color: '#fff',
+                      fontSize: 30
+                    },
+                    headerTintColor: '#FFF843',
+                    headerShown: '#1C1B1B'
+                  }}      
                 />
-                
+                <Stack.Screen
+                  name="RutinasScreen"
+                  component={RutinasScreen}
+                  options={{
+                    // tittle: 'Rutinas',
+                    headerStyle: {
+                      backgroundColor: '#1C1B1B',
+                    },
+                    headerTitleStyle: {
+                      color: '#fff',
+                      fontSize: 30
+                    },
+                    headerTintColor: '#FFF843',
+                    headerShown: '#1C1B1B'
+                  }}
+                />
+                <Stack.Screen
+                  name="Rutinas"
+                  component={PdfScreen}
+                  options={{
+                    // tittle: 'Rutinas',
+                    headerStyle: {
+                      backgroundColor: '#1C1B1B',
+                    },
+                    headerTitleStyle: {
+                      color: '#fff',
+                      fontSize: 30
+                    },
+                    headerTintColor: '#FFF843',
+                    headerShown: '#1C1B1B'
+                  }}
+                />
+                <Stack.Screen
+                  name="PlanMensual"
+                  component={PlanMensual}
+                  options={{
+                    // tittle: 'Rutinas',
+                    headerStyle: {
+                      backgroundColor: '#1C1B1B',
+                    },
+                    headerTitleStyle: {
+                      color: '#fff',
+                      fontSize: 30
+                    },
+                    headerTintColor: '#FFF843',
+                    headerShown: '#1C1B1B'
+                  }}
+                />
+                <Stack.Screen
+                  name="ComprarPlan"
+                  component={ComprarPlan}
+                  options={{
+                    // tittle: 'Rutinas',
+                    headerStyle: {
+                      backgroundColor: '#1C1B1B',
+                    },
+                    headerTitleStyle: {
+                      color: '#fff',
+                      fontSize: 30
+                    },
+                    headerTintColor: '#FFF843',
+                    headerShown: '#1C1B1B'
+                  }}
+                />
             </Stack.Navigator>
 
         </NavigationContainer>

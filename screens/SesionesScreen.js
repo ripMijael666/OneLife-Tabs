@@ -69,7 +69,7 @@ const SesionesScreen = ({navigation}) => {
       height: '100%'
     }}>
 
-      <ScrollView>
+      {/* <ScrollView> */}
       <View>
         <Text style={styles.titulo}>Sesiones</Text>
       </View>
@@ -87,7 +87,7 @@ const SesionesScreen = ({navigation}) => {
       renderItem = {({item}) => <SesionesProps item = {item}/>}
       />
       </TouchableOpacity> 
-      </ScrollView>
+      {/* </ScrollView> */}
     </SafeAreaView> 
     
   )
