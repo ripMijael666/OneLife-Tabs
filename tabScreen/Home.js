@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
   },
   medidor: {
     // display: 'grid',
-    marginTop: 25,
+    marginTop: 30,
     // marginBottom: '9pt',
     // gridTemplateColumns: '70% 30%'
   },
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     // fontFamily: 'Dosis_200ExtraLight',
     textAlign: "left",
-    marginLeft: 35
+    marginLeft: 20
   },
   ver: {
     color: '#FFF843',

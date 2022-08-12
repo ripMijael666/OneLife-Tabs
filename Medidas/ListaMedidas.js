@@ -4,14 +4,16 @@ import {
   Text, 
   StyleSheet, 
   TouchableOpacity, 
-  SafeAreaView 
+  SafeAreaView, 
+  ScrollView
 } from "react-native";
 import { FlatList } from 'react-native'
 import Medidas from './Medidas'
-
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 
 const ListaMedidas = () => {
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
     const listausuarios = [
       {
         id: '1',
@@ -45,67 +47,55 @@ const ListaMedidas = () => {
     ]
   return (
     <SafeAreaView 
-      style={{
-        backgroundColor: '#1C1B1B',
-        width: '100%',
-        height: '100%'
-      }}
+      style={styles.container}
     >
-
-
-
-
-      <View 
+      <ScrollView
         style={styles.title}
       >
-        <TouchableOpacity
-          onPress={() => navigation.navigate("HomeScreen")}
+        <View 
+          style= {{
+            flexDirection: 'row', 
+            justifyContent: 'space-between',
+          }}
         >
-          {/* <Ionicons 
-            style={styles.icono}
-            name="chevron-back" 
-            size={36} 
-            color="#FFF843"
-          /> */}
-        </TouchableOpacity>
-        <Text 
-          style={styles.titulo}
-        >
-          Medidas
-        </Text>
-      </View>
-
-
-
-
-      <FlatList
-        data = {listausuarios}
-        keyExtractor = {(item) => item.id}
-        renderItem = {({item}) => <Medidas item = {item}/>}
-        ItemSeparatorComponent = { () => <View 
-          style = {{ 
-              marginVertical: 10, 
-          }} />}
-        ListHeaderComponent = { () => 
-          <Text
-            style = {styles.titulo}
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Home")}
+          >
+            <AntDesign name="left" size={50} color="#FFF843" />
+          </TouchableOpacity>
+          <Text 
+            style={styles.titulo}
           >
             Medidas
           </Text>
-        }
-      />
+        </View>
+      
+
+
+
+
+        <FlatList
+          data = {listausuarios}
+          keyExtractor = {(item) => item.id}
+          renderItem = {({item}) => <Medidas item = {item}/>}
+          ItemSeparatorComponent = { () => <View 
+            style = {{ 
+                marginVertical: 10, 
+            }} />}
+        />
+      </ScrollView>
     </SafeAreaView>  
   )  
 };
 
 const styles = StyleSheet.create ({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#1C1B1B',
-  },
-  title:{
-    // display: 'grid',
-    // gridTemplateColumns: '100%' 
+    width: '100%',
+    height: '100%',
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
   },
   titulo: {
     paddingHorizontal: 32,

@@ -63,8 +63,9 @@ const styles = StyleSheet.create ({
     backgroundColor: '#1C1B1B',
   },
   informacion: {
-      display: 'grid',
-      gridTemplateColumns: '60% 40%' 
+    flex: 1,
+      // display: 'grid',
+      // gridTemplateColumns: '60% 40%' 
   },
   start: {
     textAlign: 'star',

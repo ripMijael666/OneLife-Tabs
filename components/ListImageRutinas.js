@@ -35,7 +35,7 @@ const ListImage = (item) => {
                     style={{
                         alignContent: 'center',
                         alignItems: 'center',
-                        fontFamily: 'Dosis_200ExtraLight'
+                        // fontFamily: 'Dosis_200ExtraLight'
                     }}
                 >
                     <Image
@@ -48,7 +48,7 @@ const ListImage = (item) => {
                         style={{
                             color: COLORS.white,
                             textAlign: 'left',
-                            fontFamily: 'Dosis_200ExtraLight'
+                            // fontFamily: 'Dosis_200ExtraLight'
                             
                         }}
                     >

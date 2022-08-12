@@ -67,6 +67,7 @@ const styles = StyleSheet.create ({
     backgroundColor: '#1C1B1B',
   },
   informacion: {
+    flex: 1,
     // display: 'grid',
     // gridTemplateColumns: '45% 55%' 
   },
