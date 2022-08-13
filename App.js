@@ -150,13 +150,13 @@ function HomeFlow() {
           headerShown: false,
         }}
       />
-        <Tab.Screen
+        {/* <Tab.Screen
         name="Sesiones"
         component={SesionesScreen}
         options={{
           headerShown: false,
         }}
-        />
+        /> */}
     </Tab.Navigator>
   );
 }
@@ -258,7 +258,7 @@ function App() {
                     headerShown: '#1C1B1B'
                   }}
                 />
-                <Stack.Screen
+                {/* <Stack.Screen
                   name="PlanMensual"
                   component={PlanMensual}
                   options={{
@@ -273,8 +273,8 @@ function App() {
                     headerTintColor: '#FFF843',
                     headerShown: '#1C1B1B'
                   }}
-                />
-                <Stack.Screen
+                /> */}
+                {/* <Stack.Screen
                   name="ComprarPlan"
                   component={ComprarPlan}
                   options={{
@@ -289,7 +289,7 @@ function App() {
                     headerTintColor: '#FFF843',
                     headerShown: '#1C1B1B'
                   }}
-                />
+                /> */}
             </Stack.Navigator>
 
         </NavigationContainer>
