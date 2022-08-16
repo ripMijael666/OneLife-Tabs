@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import {Context as AuthContext} from '../context/AuthContext';
+import React from "react";
 
 import { 
     View, 
@@ -7,14 +6,14 @@ import {
     StyleSheet, 
     Image, 
     TouchableOpacity, 
-    StatusBar, 
-    ActivityIndicator, 
-    FlatList, 
     SafeAreaView, 
-    ScrollView 
+    ScrollView,
 } from "react-native";
-
+import {Context as AuthContext} from '../context/AuthContext';
+import {BarChart} from "react-native-chart-kit";
+import { Dimensions } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 // import { useFonts,
 //   Dosis_200ExtraLight,
@@ -29,13 +28,12 @@ import { useNavigation } from '@react-navigation/native';
 // import * as SplashScreen from "expo-splash-screen"
 // SplashScreen.preventAutoHideAsync();
 
-import {BarChart} from "react-native-chart-kit";
-import { Dimensions } from "react-native";
 
-function Home() {
+const Home = (item) => {
+
   const { signOut } = React.useContext(AuthContext);
   const navigation = useNavigation();
-
+  const { HoraInicio } = item
   const listausuarios = () => {
     navigation.navigate("ListaMedidas");
   }
@@ -87,12 +85,24 @@ function Home() {
         <View 
         style = {styles.body}
         >
+        <View
+          style= {styles.encabezado}
+        >
           <Text 
             style={styles.titulo}
           >
             Bienvenido
           </Text>
 
+          <TouchableOpacity
+          style= {{
+            marginRight:40,
+          }}
+            onPress={() => navigation.navigate("IdUsuario")}
+          >
+            <MaterialCommunityIcons name="qrcode-scan" size={35} color="#FFF843" />
+          </TouchableOpacity>
+        </View>
           <Text 
             style={styles.nombreUsuario}
           >
@@ -195,6 +205,37 @@ function Home() {
                     marginTop: 15,
                   }}
             />
+          <View>
+
+          
+            <View
+                style={styles.encabezado}
+            >
+                <Text
+                    style={styles.titulo}
+                > 
+                    Reservas
+                </Text>
+
+                <Text
+                    style={styles.ver}
+                >
+                    VER TODO
+                </Text>
+            </View>
+
+            <View
+              style={{
+                color: '#d6a7'
+              }}
+            >
+              <Text
+                    style={styles.textList}
+              > 
+                { item.item.HoraInicio } 
+              </Text>
+            </View>
+          </View>
         </View> 
       </ScrollView>
     </SafeAreaView>
@@ -273,7 +314,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     // fontFamily: 'Dosis_200ExtraLight',
     textAlign: "right",
-    marginRight: 20
+    marginRight: 20,
+    marginTop: 45 
   },
   start: {
     textAlign: 'left'

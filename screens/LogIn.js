@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Context as AuthContext} from '../context/AuthContext';
 import { 
     View, 
@@ -10,13 +10,68 @@ import {
     Image,
     SafeAreaView,
     ScrollView,
-    TextInput
+    TextInput,
+    Alert
 } from "react-native";
+//import FormData from 'FormData';
  
 function LogIn() {
     const [email, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const { signIn } = React.useContext(AuthContext);
+
+
+
+
+
+
+
+    
+
+    const getMoviesFromApiAsync = async () => {
+      try {
+
+        var data = new FormData();
+        data.append("username", email);
+        data.append("password", password);
+
+        const response = await fetch(
+          'https://onelifefitness.xyz/clients/loginMobile',
+          {
+            method: 'POST',
+            // headers: {
+            //   Accept: 'application/json',
+            //   //'Content-Type': 'application/json'
+            // },
+            body: data
+          }
+        );
+        const json = await response.json();
+        console.log(json);
+
+        if(json.response.status){
+          Alert.alert('Bienvenido' + json.response.data.names);
+          
+        } else {
+          Alert.alert('error');
+        }
+
+        return json.login;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+
+
+
+
+
+
+
+
+
+
 
     return (
     <SafeAreaView
@@ -78,7 +133,8 @@ function LogIn() {
         <TouchableOpacity
             style={styles.boton}
             title="Sign in"
-            onPress={() => signIn({ email, password })}
+            // onPress={() => signIn({ email, password })}
+            onPress={() => getMoviesFromApiAsync( )}
         >
           <Text
             style={styles.textoBoton  }

@@ -14,17 +14,20 @@ import {Icon} from 'react-native-elements';
 import LogIn from './screens/LogIn';
 import CiudadScreen from './screens/CiudadScreen.js';
 import Home from './tabScreen/Home.js';
+import IdUsuario from './screens/IdUsuario.js';
 import ListaMedidas from './Medidas/ListaMedidas';
 import FlatListScreen from './screens/FlatListScreen.js';
 import RutinasScreen from './screens/RutinasScreen.js';
 import PdfScreen from './screens/PdfScreen.js';
-import Rutinas from './tabScreen/Rutinas.js';
-import ListRutinas from './components/ListRutinas.js';
-import SesionesProps from './Sesiones/SesionesProps.js';
-import SesionesScreen from './screens/SesionesScreen.js';
-import PlanMensual from './Sesiones/PlanMensual.js';
-import PlanesMensuales from './Sesiones/PlanesMensuales.js';
-import ComprarPlan from './Sesiones/ComprarPlan.js';
+import Clases from './tabScreen/Clases.js';
+
+// import Rutinas from './tabScreen/Rutinas.js';
+// import ListRutinas from './components/ListRutinas.js';
+// import SesionesProps from './Sesiones/SesionesProps.js';
+// import SesionesScreen from './screens/SesionesScreen.js';
+// import PlanMensual from './Sesiones/PlanMensual.js';
+// import PlanesMensuales from './Sesiones/PlanesMensuales.js';
+// import ComprarPlan from './Sesiones/ComprarPlan.js';
 
 function Splash() {
   return (
@@ -126,6 +129,11 @@ function HomeFlow() {
                 ? 'ios-information-circle'
                 : 'ios-information-circle-outline';
               break;
+            case 'Clases':
+              iconName = focused
+                ? 'ios-information-circle'
+                : 'ios-information-circle-outline';
+              break;
           }
 
           // You can return any component that you like here!
@@ -150,13 +158,13 @@ function HomeFlow() {
           headerShown: false,
         }}
       />
-        {/* <Tab.Screen
-        name="Sesiones"
-        component={SesionesScreen}
+        <Tab.Screen
+        name="Clases"
+        component={Clases}
         options={{
           headerShown: false,
         }}
-        /> */}
+        />
     </Tab.Navigator>
   );
 }
@@ -230,7 +238,6 @@ function App() {
                   name="RutinasScreen"
                   component={RutinasScreen}
                   options={{
-                    // tittle: 'Rutinas',
                     headerStyle: {
                       backgroundColor: '#1C1B1B',
                     },
@@ -246,7 +253,21 @@ function App() {
                   name="Rutinas"
                   component={PdfScreen}
                   options={{
-                    // tittle: 'Rutinas',
+                    headerStyle: {
+                      backgroundColor: '#1C1B1B',
+                    },
+                    headerTitleStyle: {
+                      color: '#fff',
+                      fontSize: 30
+                    },
+                    headerTintColor: '#FFF843',
+                    headerShown: '#1C1B1B'
+                  }}
+                />
+                <Stack.Screen
+                  name="IdUsuario"
+                  component={IdUsuario}
+                  options={{
                     headerStyle: {
                       backgroundColor: '#1C1B1B',
                     },
