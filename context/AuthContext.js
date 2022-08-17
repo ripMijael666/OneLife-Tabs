@@ -1,5 +1,9 @@
 import createDataContext from './createDataContext';
 import * as SecureStore from 'expo-secure-store';
+import { useNavigation } from '@react-navigation/native';
+import App from '../App';
+import Home from '../tabScreen/Home';
+import { Alert } from 'react-native';
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -24,6 +28,8 @@ const authReducer = (state, action) => {
 };
 
 const signUp = dispatch => {
+
+  
   return ({email, password}) => {
     dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
   };
@@ -31,12 +37,43 @@ const signUp = dispatch => {
 
 const signIn = dispatch => {
   return async ({email, password}) => {
-    console.log(email);
-    console.log(password);
-    await SecureStore.setItemAsync('email', email);
-    await SecureStore.setItemAsync('password', password);
-    await SecureStore.setItemAsync('userToken', 'dummy-auth-token');
-    dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });    
+
+
+    try {
+
+      var data = new FormData();
+      data.append("username", email);
+      data.append("password", password);
+  
+      const response = await fetch(
+        'https://onelifefitness.xyz/clients/loginMobile',
+        {
+          method: 'POST',
+          body: data
+        }
+      );
+      const json = await response.json();
+      console.log(json);
+  
+      if (json.response.status) {
+        Alert.alert('Bienvenido' + json.response.data.names);
+        console.log(email);
+        console.log(password);
+        await SecureStore.setItemAsync('email', email);
+        await SecureStore.setItemAsync('password', password);
+        await SecureStore.setItemAsync('userToken', 'dummy-auth-token');
+        dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+  
+      } else {
+        Alert.alert('error');
+      }
+  
+    } catch (error) {
+      console.error(error);
+    }
+
+
+        
   };
 };
 

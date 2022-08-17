@@ -71,21 +71,29 @@ const SesionesList = ({navigation}) => {
     }}>
 
       <ScrollView>
-      <View>
-        <Text style={styles.titulo}>Sesiones</Text>
-      </View>
+        <View>
+          <Text 
+            style={styles.titulo}
+          >
+            Sesiones  
+          </Text>
+        </View>
 
       <TouchableOpacity
-       onPress={()=> navigation.navigate("PlanMensual")}>
-        <View>
-          <Text style={styles.comprar}>Comprar sesiones</Text>  
-        </View>
+        onPress={()=> navigation.navigate("PlanMensual")}>
+          <View>
+            <Text 
+              style={styles.comprar}
+            >
+              Comprar sesiones
+            </Text>  
+          </View>
       
 
       <FlatList
-      data = {listaSesiones}
-      keyExtractor = {(item) => item.id}
-      renderItem = {({item}) => <SesionesProps item = {item}/>}
+        data = {listaSesiones}
+        keyExtractor = {(item) => item.id}
+        renderItem = {({item}) => <SesionesProps item = {item}/>}
       />
       </TouchableOpacity> 
       </ScrollView>

@@ -1,6 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 
 import Home from "../tabScreen/Home";
 
@@ -12,54 +11,31 @@ const HoraReserva = () => {
             id: '001'
         },
         {
-            hora: '07:00',
+            hora: '08:00',
             id: '002'
         }
       ]
-    //   const HoraFinal = [
-    //     {
-    //         hora: '08:00',
-    //         id: '001'
-    //     },
-    //     {
-    //         hora: '08:00',
-    //         id: '002'
-    //     }
-    //   ]
 
-    return (
-        <View
-            style={styles.container}
-        >
-            <FlatList 
-                numColumns={
-                    2
-                }
-                data = { HoraInicio }
-                keyExtractor = { (item) => item.id}
-                renderItem = { ({ item, index }) => <Home item = { item } /> }
-                ItemSeparatorComponent = { () => <View 
-                    style = {{ 
-                        marginVertical: 15, 
-                    }} />}
 
-            />
+    // return (
+    //     <View
+    //         style={styles.container}
+    //     >
+    //         <FlatList 
+    //             numColumns={
+    //                 2
+    //             }
+    //             data = { HoraInicio }
+    //             keyExtractor = { (item) => item.id}
+    //             renderItem = { ({ item }) => <Text style={{fontSize: 17, color: "white"}} >{item.hora}</Text> }
+    //             ItemSeparatorComponent = { () => <View 
+    //                 style = {{ 
+    //                     marginVertical: 15, 
+    //                 }} />}
 
-            {/* <FlatList 
-                numColumns={
-                    2
-                }
-                data = { HoraFinal }
-                keyExtractor = { (item) => item.id}
-                renderItem = { ({ item, index }) => <Home item = { item } /> }
-                ItemSeparatorComponent = { () => <View 
-                    style = {{ 
-                        marginVertical: 15, 
-                    }} />}
-
-            /> */}
-        </View>
-    )
+    //         />
+    //     </View>
+    // )
 }
 
 

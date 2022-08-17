@@ -8,7 +8,11 @@ import * as SecureStore from 'expo-secure-store';
 
 import {Provider as AuthProvider} from './context/AuthContext.js';
 import {Context as AuthContext} from './context/AuthContext';
-import {Icon} from 'react-native-elements';
+// import {Icon} from 'react-native-elements';
+
+
+// import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 
 import LogIn from './screens/LogIn';
@@ -138,7 +142,8 @@ function HomeFlow() {
 
           // You can return any component that you like here!
           return (
-            <Icon name={iconName} type="ionicon" size={size} color={color} />
+            <AntDesign name="checkcircleo" size={24} color="#FFFD" />
+            // <Icon name={iconName} type="ionicon" size={size} color={color} />
           );
         },
       })}

@@ -8,12 +8,14 @@ import {
     TouchableOpacity, 
     SafeAreaView, 
     ScrollView,
+    FlatList
 } from "react-native";
 import {Context as AuthContext} from '../context/AuthContext';
 import {BarChart} from "react-native-chart-kit";
 import { Dimensions } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import HoraReserva from "../components/HoraReserva";
 
 // import { useFonts,
 //   Dosis_200ExtraLight,
@@ -25,18 +27,28 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 //   Dosis_800ExtraBold
 // } from '@expo-google-fonts/dosis'
 
-// import * as SplashScreen from "expo-splash-screen"
-// SplashScreen.preventAutoHideAsync();
 
 
-const Home = (item) => {
+const Home = ({item}) => {
+
+  // const {hora} = item
 
   const { signOut } = React.useContext(AuthContext);
   const navigation = useNavigation();
-  const { HoraInicio } = item
   const listausuarios = () => {
     navigation.navigate("ListaMedidas");
   }
+
+  const HoraInicio = [
+    {
+        hora: '07:00',
+        id: '001'
+    },
+    {
+        hora: '08:00',
+        id: '002'
+    }
+  ]
 
   return (
     <SafeAreaView
@@ -212,7 +224,7 @@ const Home = (item) => {
                 style={styles.encabezado}
             >
                 <Text
-                    style={styles.titulo}
+                    style={styles.Reserva}
                 > 
                     Reservas
                 </Text>
@@ -220,20 +232,19 @@ const Home = (item) => {
                 <Text
                     style={styles.ver}
                 >
-                    VER TODO
+                    Ver todo
                 </Text>
             </View>
 
-            <View
-              style={{
-                color: '#d6a7'
-              }}
-            >
-              <Text
-                    style={styles.textList}
-              > 
-                { item.item.HoraInicio } 
-              </Text>
+            <View>
+              <FlatList 
+                numColumns={
+                    1
+                }
+                data = { HoraInicio }
+                keyExtractor = { (item) => item.id}
+                renderItem = { ({ item }) => <Text style={{fontSize: 30, color: "#FFF"}} >{item.hora}</Text> }
+              />
             </View>
           </View>
         </View> 
@@ -250,8 +261,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     justifyContent: 'space-between',
     marginTop: 55
-    // display: 'grid',
-    // gridTemplateColumns: '50% 50%' ,
   },
   body: {
     flex: 1,
@@ -262,6 +271,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35,
     paddingVertical: -130,
     fontSize: 55,
+    color: '#fff',
+    // fontFamily: 'Dosis_400Regular'
+  },
+  Reserva: {
+    paddingHorizontal: 35,
+    paddingVertical: -130,
+    fontSize: 48,
     color: '#fff',
     // fontFamily: 'Dosis_400Regular'
   },

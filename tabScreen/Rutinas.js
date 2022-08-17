@@ -1,6 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { View, Text, SafeAreaView, StyleSheet, StatusBar, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import PdfScreen from '../screens/PdfScreen'

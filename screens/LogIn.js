@@ -1,151 +1,97 @@
-import React, {useEffect} from "react";
-import {Context as AuthContext} from '../context/AuthContext';
-import { 
-    View, 
-    Text, 
-    StyleSheet, 
-    TouchableOpacity, 
-    ImageBackground, 
-    StatusBar, 
-    Image,
-    SafeAreaView,
-    ScrollView,
-    TextInput,
-    Alert
+import React, { useEffect } from "react";
+import { Context as AuthContext } from '../context/AuthContext';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+  StatusBar,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  TextInput,
+  Alert
 } from "react-native";
-//import FormData from 'FormData';
- 
+
 function LogIn() {
-    const [email, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const { signIn } = React.useContext(AuthContext);
 
+  const [email, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const { signIn } = React.useContext(AuthContext);
 
-
-
-
-
-
-    
-
-    const getMoviesFromApiAsync = async () => {
-      try {
-
-        var data = new FormData();
-        data.append("username", email);
-        data.append("password", password);
-
-        const response = await fetch(
-          'https://onelifefitness.xyz/clients/loginMobile',
-          {
-            method: 'POST',
-            // headers: {
-            //   Accept: 'application/json',
-            //   //'Content-Type': 'application/json'
-            // },
-            body: data
-          }
-        );
-        const json = await response.json();
-        console.log(json);
-
-        if(json.response.status){
-          Alert.alert('Bienvenido' + json.response.data.names);
-          
-        } else {
-          Alert.alert('error');
-        }
-
-        return json.login;
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-
-
-
-
-
-
-
-
-
-
-
-    return (
+  return (
     <SafeAreaView
-        style={{
-            width: '100%' ,
-            height: '100%' ,
-            backgroundColor: '#1C1B1B'
-        }}
+      style={{
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#1C1B1B'
+      }}
     >
-        <ImageBackground
-            style={styles.fondo}
-            source={require('../assets/enmascarar_grupo_7.png')}
-            resizeMode='cover'
-        >
+      <ImageBackground
+        style={styles.fondo}
+        source={require('../assets/enmascarar_grupo_7.png')}
+        resizeMode='cover'
+      >
         <Image
-        style={{
-            width: 200 ,
-            height: 94 ,
+          style={{
+            width: 200,
+            height: 94,
             marginTop: 30,
             marginVertical: 100
-        }}
+          }}
           source={require("../assets/grupo_7.png")}
         />
-        <View 
-            style={styles.container}
-        >
         <View
-          style={ styles.login }
+          style={styles.container}
         >
-        <View
-            style={{
+          <View
+            style={styles.login}
+          >
+            <View
+              style={{
                 marginVertical: 40
-            }}
-        >
-        <Text
-          style={styles.texto}
-        >
-          Nombre de Usuario
-        </Text>
-        <TextInput
-            value={email}
-            onChangeText={setUsername}
-            style={styles.input}
-        />
-        </View>
-  
-        <Text
-          style={styles.texto}
-        >
-          Password
-        </Text>
-        <TextInput
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            style={styles.input}
-        />
-        </View>
-        <TouchableOpacity
+              }}
+            >
+              <Text
+                style={styles.texto}
+              >
+                Nombre de Usuario
+              </Text>
+              <TextInput
+                value={email}
+                onChangeText={setUsername}
+                style={styles.input}
+              />
+            </View>
+
+            <Text
+              style={styles.texto}
+            >
+              Password
+            </Text>
+            <TextInput
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+              style={styles.input}
+            />
+          </View>
+          <TouchableOpacity
             style={styles.boton}
             title="Sign in"
-            // onPress={() => signIn({ email, password })}
-            onPress={() => getMoviesFromApiAsync( )}
-        >
-          <Text
-            style={styles.textoBoton  }
+            onPress={() => signIn({ email, password })}
           >
-            INGRESAR
-          </Text>
-        </TouchableOpacity>
+            <Text
+              style={styles.textoBoton}
+            >
+              INGRESAR
+            </Text>
+          </TouchableOpacity>
         </View>
-        </ImageBackground>
-      </SafeAreaView>
-    );
+      </ImageBackground>
+    </SafeAreaView>
+  );
 }
 
 export default LogIn;
@@ -169,8 +115,8 @@ const styles = StyleSheet.create({
   },
   fondo: {
     justifyContent: 'center',
-    width:'100%',
-    height:'100%',
+    width: '100%',
+    height: '100%',
     alignItems: 'center',
   },
   input: {
