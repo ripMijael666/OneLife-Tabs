@@ -82,7 +82,54 @@ const Clases = () => {
 
                         return (
                             item.date == fechastring ?
-                            (<View style={styles.calendario}>
+                            (<View 
+                                style={styles.hoy}
+                            >
+
+                                <Text
+                                    style={{
+                                        flex:2,
+
+                                        fontSize: 15,
+                                        color: "#FF0000",
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        fontWeight: '500'
+                                    }}
+                                >
+                                    {spliteado[0]}
+                                </Text>
+
+                                <Text
+                                    style={{
+                                        flex:1,
+
+                                        color: "#000000",
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        fontSize: 45,
+                                        fontWeight: '700',
+                                    }}
+                                >
+                                    {spliteado[1]}
+                                </Text>
+
+                                <Text
+                                    style={{
+                                        flex:2,
+
+                                        fontSize: 20,
+                                        color: "#000000",
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        fontWeight: '700'
+                                    }}
+                                >
+                                    {spliteado[2]}
+                                </Text>
+                            </View>) : (<><View 
+                                style={styles.calendario}
+                            >
 
                                 <Text
                                     style={{
@@ -119,7 +166,7 @@ const Clases = () => {
                                 >
                                     {spliteado[2]}
                                 </Text>
-                            </View>) : (<></>)
+                            </View></>)
                         )
 
                     }
@@ -427,7 +474,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 20,
-        marginTop: 13
+        marginTop: 25
+    },
+    hoy: {
+        flex: 1,
+        height: 110,
+        width: 110,
+        backgroundColor: '#fff',
+        color: '#FFF',
+        borderWidth: 1,
+        borderRadius: 18, 
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 20,
+        marginTop: 13,
     },
 });
 
