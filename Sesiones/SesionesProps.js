@@ -82,24 +82,25 @@ const styles = StyleSheet.create ({
     color: '#fff',
     fontSize: 20,
     // fontFamily: 'Dosis_300Light',
-    marginBottom: 28
+
   },
   text1: {
     color: '#fff',
-    marginRight: '30%',
+    marginRight: 50,
     // marginBottom: '4pt',
     fontSize: 22,
     // fontFamily: 'Dosis_200ExtraLight',
   },
   sesion: {
+    flex: 1,
     color: '#000000',
-    width: '38%',
-    height: '44%',
+    width: 65,
+    height: 75,
     fontSize: 40,
     // fontFamily: 'Dosis_300Light',
     backgroundColor: '#FFF843',
     borderRadius: 10,
-    marginLeft: '35%',
+    marginLeft: 278,
     textAlign: 'center',   
    }
 });

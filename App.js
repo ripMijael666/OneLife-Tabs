@@ -24,14 +24,12 @@ import FlatListScreen from './screens/FlatListScreen.js';
 import RutinasScreen from './screens/RutinasScreen.js';
 import PdfScreen from './screens/PdfScreen.js';
 import Clases from './tabScreen/Clases.js';
-
-// import Rutinas from './tabScreen/Rutinas.js';
-// import ListRutinas from './components/ListRutinas.js';
-// import SesionesProps from './Sesiones/SesionesProps.js';
+import Instructor from './screens/Instructor.js';
+import SesionesProps from './Sesiones/SesionesProps.js';
+import SesionesList from './tabScreen/SesionesList.js';
 // import SesionesScreen from './screens/SesionesScreen.js';
-// import PlanMensual from './Sesiones/PlanMensual.js';
-// import PlanesMensuales from './Sesiones/PlanesMensuales.js';
-// import ComprarPlan from './Sesiones/ComprarPlan.js';
+import PlanMensual from './Sesiones/PlanMensual.js';
+import ComprarPlan from './Sesiones/ComprarPlan.js';
 
 function Splash() {
   return (
@@ -56,21 +54,6 @@ function SignInScreen() {
     </View>
   );
 }
-
-// function Home() {
-//   const { signOut } = React.useContext(AuthContext);
-//   return (
-//     <View style={styles.Home}>
-//       <Text>Home</Text>
-//       <StatusBar style="auto" />
-//       <Button
-//         title="Sign Out"
-//         onPress={() => signOut( )}
-//       />
-
-//     </View>
-//   );
-// }
 
 const styles = StyleSheet.create({
   splash: {
@@ -138,6 +121,11 @@ function HomeFlow() {
                 ? 'ios-information-circle'
                 : 'ios-information-circle-outline';
               break;
+            case 'Sesiones':
+              iconName = focused
+                ? 'ios-information-circle'
+                : 'ios-information-circle-outline';
+              break;
           }
 
           // You can return any component that you like here!
@@ -163,13 +151,20 @@ function HomeFlow() {
           headerShown: false,
         }}
       />
-        <Tab.Screen
+      <Tab.Screen
+        name="Sesiones"
+        component={SesionesList}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
         name="Clases"
         component={Clases}
         options={{
           headerShown: false,
         }}
-        />
+      />
     </Tab.Navigator>
   );
 }
@@ -284,7 +279,23 @@ function App() {
                     headerShown: '#1C1B1B'
                   }}
                 />
-                {/* <Stack.Screen
+                <Stack.Screen
+                  name="Instructor"
+                  component={Instructor}
+                  options={{
+                    // tittle: 'Rutinas',
+                    headerStyle: {
+                      backgroundColor: '#1C1B1B',
+                    },
+                    headerTitleStyle: {
+                      color: '#fff',
+                      fontSize: 30
+                    },
+                    headerTintColor: '#FFF843',
+                    headerShown: '#1C1B1B'
+                  }}
+                />
+                <Stack.Screen
                   name="PlanMensual"
                   component={PlanMensual}
                   options={{
@@ -299,8 +310,8 @@ function App() {
                     headerTintColor: '#FFF843',
                     headerShown: '#1C1B1B'
                   }}
-                /> */}
-                {/* <Stack.Screen
+                />
+                <Stack.Screen
                   name="ComprarPlan"
                   component={ComprarPlan}
                   options={{
@@ -315,7 +326,7 @@ function App() {
                     headerTintColor: '#FFF843',
                     headerShown: '#1C1B1B'
                   }}
-                /> */}
+                />
             </Stack.Navigator>
 
         </NavigationContainer>

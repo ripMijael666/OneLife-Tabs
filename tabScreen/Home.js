@@ -223,17 +223,20 @@ const Home = ({item}) => {
             <View
                 style={styles.encabezado}
             >
-                <Text
-                    style={styles.Reserva}
-                > 
-                    Reservas
-                </Text>
-
+              <Text
+                  style={styles.Reserva}
+              > 
+                  Reservas
+              </Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Instructor")}
+              >
                 <Text
                     style={styles.ver}
                 >
                     Ver todo
                 </Text>
+              </TouchableOpacity>
             </View>
 
             <View>

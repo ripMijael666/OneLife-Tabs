@@ -40,7 +40,7 @@ const SesionesList = ({navigation}) => {
     {
       id: '1',
       fecha: '24/10/2021',
-      plan: '30 Sesiones',
+      plan: 'Plan 3 Meses',
       precio: 'Bs. 349',
       sesion: '10',
     },
@@ -48,7 +48,7 @@ const SesionesList = ({navigation}) => {
     {
       id: '2',
       fecha: '24/10/2021',
-      plan: '58 Sesiones',
+      plan: 'Plan 3 Meses',
       precio: 'Bs. 349',
       sesion: '10',
     },
@@ -56,7 +56,7 @@ const SesionesList = ({navigation}) => {
     {
       id: '3',
       fecha: '24/10/2021',
-      plan: '110 Sesiones',
+      plan: 'Plan 3 Meses',
       precio: 'Bs. 349',
       sesion: '10',
     },
@@ -65,6 +65,7 @@ const SesionesList = ({navigation}) => {
 ]
   return ( 
     <SafeAreaView style={{
+      flex:1,
       backgroundColor: '#1C1B1B',
       width: '100%',
       height: '100%'

@@ -14,12 +14,6 @@ import { useNavigation } from '@react-navigation/native'
 const ListImage = (item) => {
     const navigation = useNavigation();
     const { image } = item
-    //  const COLORS = {
-    //     white: '#FFFFFF',
-    //     red: '#E90716',
-      
-    //   }
-    // console.log(item);
     return (
         <View
             style={styles.container}

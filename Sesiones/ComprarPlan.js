@@ -1,5 +1,5 @@
 import React from "react";
-import { View,Text, StyleSheet, Alert, TouchableOpacity, SafeAreaView, ScrollView } from "react-native";
+import { View,Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import PagarPlan from "./PagarPlan"
 
 // import { useFonts,
@@ -9,11 +9,11 @@ import PagarPlan from "./PagarPlan"
 //   Dosis_500Medium,
 //   Dosis_600SemiBold,
 //   Dosis_700Bold,
-//   Dosis_800ExtraBold 
+//   Dosis_800ExtraBold
 // } from '@expo-google-fonts/dosis'
 
-import * as SplashScreen from "expo-splash-screen"
-SplashScreen.preventAutoHideAsync();
+// import * as SplashScreen from "expo-splash-screen"
+// SplashScreen.preventAutoHideAsync();
 
 
 function ComprarPlan() {
@@ -25,28 +25,28 @@ function ComprarPlan() {
   //   Dosis_500Medium,
   //   Dosis_600SemiBold,
   //   Dosis_700Bold,
-  //   Dosis_800ExtraBold 
+  //   Dosis_800ExtraBold
   // });
 
   return (
-    <SafeAreaView 
+    <SafeAreaView
     style={styles.container}
     >
       <ScrollView>
         <View>
-          <Text 
+          <Text
             style={styles.titulo}
           >
             Sesiones
           </Text>
 
-          <Text 
+          <Text
             style={styles.descripcion}
           >
             Plan Mensual 30 Sesiones
           </Text>
 
-          <PagarPlan 
+          <PagarPlan
             plan='Plan Mensual' sesiones='118' precio='Bs 349'
           />
         </View>
@@ -60,7 +60,7 @@ export default ComprarPlan;
 const styles = StyleSheet.create ({
   container: {
     flex: 1,
-    backgroundColor: '#1C1B1B', 
+    backgroundColor: '#1C1B1B',
   },
   titulo: {
     paddingHorizontal: 35,
