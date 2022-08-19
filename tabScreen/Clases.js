@@ -89,7 +89,6 @@ const Clases = () => {
                                 <Text
                                     style={{
                                         flex:2,
-
                                         fontSize: 15,
                                         color: "#FF0000",
                                         justifyContent: 'center',
@@ -103,7 +102,6 @@ const Clases = () => {
                                 <Text
                                     style={{
                                         flex:1,
-
                                         color: "#000000",
                                         justifyContent: 'center',
                                         alignItems: 'center',
@@ -117,7 +115,6 @@ const Clases = () => {
                                 <Text
                                     style={{
                                         flex:2,
-
                                         fontSize: 20,
                                         color: "#000000",
                                         justifyContent: 'center',

@@ -283,7 +283,6 @@ function App() {
                   name="Instructor"
                   component={Instructor}
                   options={{
-                    // tittle: 'Rutinas',
                     headerStyle: {
                       backgroundColor: '#1C1B1B',
                     },
@@ -299,7 +298,6 @@ function App() {
                   name="PlanMensual"
                   component={PlanMensual}
                   options={{
-                    // tittle: 'Rutinas',
                     headerStyle: {
                       backgroundColor: '#1C1B1B',
                     },
@@ -315,7 +313,6 @@ function App() {
                   name="ComprarPlan"
                   component={ComprarPlan}
                   options={{
-                    // tittle: 'Rutinas',
                     headerStyle: {
                       backgroundColor: '#1C1B1B',
                     },
