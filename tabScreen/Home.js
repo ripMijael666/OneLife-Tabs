@@ -8,14 +8,13 @@ import {
     TouchableOpacity, 
     SafeAreaView, 
     ScrollView,
-    FlatList
+    TextInput
 } from "react-native";
 import {Context as AuthContext} from '../context/AuthContext';
 import {BarChart} from "react-native-chart-kit";
 import { Dimensions } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import HoraReserva from "../components/HoraReserva";
 
 // import { useFonts,
 //   Dosis_200ExtraLight,
@@ -30,27 +29,16 @@ import HoraReserva from "../components/HoraReserva";
 
 
 const Home = ({item}) => {
-
-  // const {hora} = item
-
+  console.log(item);
   const { signOut } = React.useContext(AuthContext);
   const navigation = useNavigation();
   const listausuarios = () => {
     navigation.navigate("ListaMedidas");
   }
 
-  const HoraInicio = [
-    {
-        hora: '07:00',
-        id: '001'
-    },
-    {
-        hora: '08:00',
-        id: '002'
-    }
-  ]
 
   return (
+
     <SafeAreaView
       style={styles.container}
     >
@@ -188,9 +176,7 @@ const Home = ({item}) => {
                     ]
                   }]
                 }}
-                width={
-                  Dimensions.get("window").width
-                }
+                width={348}
                 height={197}
                 yAxisSuffix="kg"
                 yAxisInterval={1}
@@ -215,11 +201,12 @@ const Home = ({item}) => {
                     marginVertical: 5,
                     borderRadius: 18,
                     marginTop: 15,
+                    paddingLeft: 15
                   }}
             />
-          <View>
 
-          
+
+          <View>
             <View
                 style={styles.encabezado}
             >
@@ -229,26 +216,90 @@ const Home = ({item}) => {
                   Reservas
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate("Instructor")}
+                onPress={() => navigation.navigate("Clases")}
               >
                 <Text
-                    style={styles.ver}
+                    style={styles.ver2}
                 >
                     Ver todo
                 </Text>
               </TouchableOpacity>
             </View>
 
-            <View>
-              <FlatList 
-                numColumns={
-                    1
-                }
-                data = { HoraInicio }
-                keyExtractor = { (item) => item.id}
-                renderItem = { ({ item }) => <Text style={{fontSize: 30, color: "#FFF"}} >{item.hora}</Text> }
-              />
-            </View>
+              <View
+                 style={styles.clasesContainer}
+              >
+                <View
+                    style={styles.containerHora}
+                >
+                  <Text
+                      style={styles.hora}  
+                  >
+                      07:00
+                  </Text>
+
+                  <TextInput
+                      style={styles.TextInput}
+                  />
+
+                  <Text
+                      style={styles.hora}  
+                  >
+                      08:00
+                  </Text>
+                </View>
+
+                <TouchableOpacity
+                    style={styles.TouchableOpacity}
+                    onPress={() => navigation.navigate("Instructor")}
+                >
+                  <View
+                    style={styles.containerText}
+                  >
+                    <Text
+                      style={styles.texto1}
+                    >
+                      ZUMBA Fitness
+                    </Text>
+                    <Text
+                      style={styles.texto2}
+                    >
+                      Fernando Valenzuela
+                    </Text>
+                    <View
+                style={{
+                  flex: 1,
+                  height: 80,
+                  width: 110,
+                  backgroundColor: '#fff',
+                  color: '#FFF',
+                  borderWidth: 1,
+                  borderRadius: 18,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  // marginLeft: 20,
+                  marginTop: 13,
+                }}
+              >
+                   <Text
+
+                  >
+                    LUN
+                  </Text> 
+                  <Text
+                  >
+                    22
+                  </Text>
+                  <Text
+                  >
+                    AGO
+                  </Text>
+                </View>
+                  </View>
+                </TouchableOpacity>
+                
+              
+              </View>
           </View>
         </View> 
       </ScrollView>
@@ -256,6 +307,58 @@ const Home = ({item}) => {
   );
 }
 const styles = StyleSheet.create({
+  clasesContainer: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
+  },
+  containerHora: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  hora: {
+    color: '#FFF',
+    fontWeight: '100',
+    fontSize: 15
+  },
+  TouchableOpacity: {
+    flex: 1,
+  },
+  containerText: {
+    flex: 1,
+    height: 180,
+    // width: 0,
+    borderColor: '#FFF843',
+    borderWidth: 1,
+    borderRadius: 12, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
+  },
+  texto2: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '100',
+    paddingRight: '35%'
+  },
+  TextInput: {
+    width: 8,
+    height: 35,
+    backgroundColor: '#FFF843',
+    borderRadius: 12
+  }, 
+  texto1: {
+    color: '#FFF843',
+    fontSize: 25,
+    fontWeight: '500',
+    paddingRight: '20%'
+  }, 
   container: {
     flex: 1,
     backgroundColor: '#1C1B1B',
@@ -334,7 +437,15 @@ const styles = StyleSheet.create({
     // fontFamily: 'Dosis_200ExtraLight',
     textAlign: "right",
     marginRight: 20,
-    marginTop: 45 
+    marginTop: -18
+  },
+  ver2: {
+    color: '#FFF843',
+    fontSize: 15,
+    // fontFamily: 'Dosis_200ExtraLight',
+    textAlign: "right",
+    marginRight: 20,
+    marginTop: 35
   },
   start: {
     textAlign: 'left'

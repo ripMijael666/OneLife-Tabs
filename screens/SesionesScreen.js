@@ -75,7 +75,8 @@ const SesionesScreen = ({navigation}) => {
       </View>
 
       <TouchableOpacity
-       onPress={()=> navigation.navigate("PlanMensual")}>
+        onPress={()=> navigation.navigate("PlanMensual")}
+       >
         <View>
           <Text style={styles.comprar}>Comprar sesiones</Text>  
         </View>

@@ -72,9 +72,9 @@ const styles = StyleSheet.create ({
     // gridTemplateColumns: '45% 55%' 
     flexDirection: 'row',
   },
-  start: {
-    textAlign: 'star',
-  },
+  // start: {
+  //   textAlign: 'star',
+  // },
   end: {
     alignItems: 'flex-start',
     marginLeft: 50

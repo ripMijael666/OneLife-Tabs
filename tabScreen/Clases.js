@@ -193,7 +193,7 @@ const Clases = () => {
 
                     <TouchableOpacity
                         style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor")}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
                     >
                         <View
                             style={styles.containerText}
@@ -235,7 +235,7 @@ const Clases = () => {
 
                     <TouchableOpacity
                         style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor")}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
                     >
                         <View
                             style={styles.containerText}
@@ -277,7 +277,7 @@ const Clases = () => {
 
                     <TouchableOpacity
                         style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor")}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
                     >
                         <View
                             style={styles.containerText}
@@ -319,7 +319,7 @@ const Clases = () => {
 
                     <TouchableOpacity
                         style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor")}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
                     >
                         <View
                             style={styles.containerText}
@@ -361,7 +361,133 @@ const Clases = () => {
 
                     <TouchableOpacity
                         style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor")}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
+                    >
+                        <View
+                            style={styles.containerText}
+                        >
+                                <Text
+                                    style={styles.texto1}
+                                >
+                                    ZUMBA Fitness
+                                </Text>
+                                <Text
+                                    style={styles.texto2}
+                                >
+                                    Fernando Valenzuela
+                                </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+
+                <View
+                    style={styles.clasesContainer}
+                >
+                    <View
+                        style={styles.containerHora}
+                    >
+                        <Text
+                            style={styles.hora}  
+                        >
+                            07:00
+                        </Text>
+                        <TextInput
+                            style={styles.TextInput}
+                        />
+                        <Text
+                            style={styles.hora}  
+                        >
+                            08:00
+                        </Text>
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.TouchableOpacity}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
+                    >
+                        <View
+                            style={styles.containerText}
+                        >
+                                <Text
+                                    style={styles.texto1}
+                                >
+                                    ZUMBA Fitness
+                                </Text>
+                                <Text
+                                    style={styles.texto2}
+                                >
+                                    Fernando Valenzuela
+                                </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+
+                <View
+                    style={styles.clasesContainer}
+                >
+                    <View
+                        style={styles.containerHora}
+                    >
+                        <Text
+                            style={styles.hora}  
+                        >
+                            07:00
+                        </Text>
+                        <TextInput
+                            style={styles.TextInput}
+                        />
+                        <Text
+                            style={styles.hora}  
+                        >
+                            08:00
+                        </Text>
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.TouchableOpacity}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
+                    >
+                        <View
+                            style={styles.containerText}
+                        >
+                                <Text
+                                    style={styles.texto1}
+                                >
+                                    ZUMBA Fitness
+                                </Text>
+                                <Text
+                                    style={styles.texto2}
+                                >
+                                    Fernando Valenzuela
+                                </Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+
+                <View
+                    style={styles.clasesContainer}
+                >
+                    <View
+                        style={styles.containerHora}
+                    >
+                        <Text
+                            style={styles.hora}  
+                        >
+                            07:00
+                        </Text>
+                        <TextInput
+                            style={styles.TextInput}
+                        />
+                        <Text
+                            style={styles.hora}  
+                        >
+                            08:00
+                        </Text>
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.TouchableOpacity}
+                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
                     >
                         <View
                             style={styles.containerText}
