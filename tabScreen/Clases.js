@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { View, Text, StyleSheet, TextInput, ScrollView, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 
 // import { useFonts,
 //     Dosis_200ExtraLight,
@@ -13,6 +14,19 @@ import { useNavigation } from "@react-navigation/native";
 //   } from '@expo-google-fonts/dosis'
 
 const Clases = () => {
+    const flatlistRef = useRef()
+
+    const scrollToIndex = () => {
+        console.log('scroll to index called !')
+        let index = 3
+        flatlistRef.current.scrollToIndex({ animated: true, index: index })
+    }
+    // useFocusEffect(
+    //     useCallback(() => {
+    //       scrollToIndex()
+    //     }, [])
+    //   )
+      
 
     const listaHora = [
         {
@@ -251,7 +265,7 @@ const Clases = () => {
               }
             );
             const json = await response.json();
-            console.log(json);
+            // console.log(json);
 
             var listaDevuelta = [];
             json.data.forEach(element => {
@@ -265,7 +279,7 @@ const Clases = () => {
           }
       
     }
-    console.log(classesByDay);
+
 
     return (
         <View
@@ -291,6 +305,7 @@ const Clases = () => {
 
                 <FlatList
                     horizontal
+                    ref={flatlistRef}
                     data={arregloDias}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => {
@@ -301,7 +316,10 @@ const Clases = () => {
 
                         return (
                             item.date == fechastring ?(
-                            <TouchableOpacity onPress={() => { classesByDay(Number(item.id) +1)  }}><View
+                            <TouchableOpacity onPress={() => { 
+                                classesByDay(parseInt(item.id) +1);
+                                flatlistRef.current.scrollToIndex({ animated: true, index: parseInt(item.id) })
+                            }}><View
                                 style={styles.hoy}
                             >
 
@@ -344,7 +362,11 @@ const Clases = () => {
                                     {spliteado[2]}
                                 </Text>
                             </View></TouchableOpacity> ) : (<>
-                                <TouchableOpacity onPress={() => { classesByDay(parseInt(item.id))  }}><View
+                                <TouchableOpacity 
+                                onPress={() => { 
+                                    classesByDay(parseInt(item.id));
+                                    flatlistRef.current.scrollToIndex({ animated: true, index: parseInt(item.id) })
+                                }}><View
                                 style={styles.calendario}
                             >
 
