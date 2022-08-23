@@ -265,6 +265,7 @@ const Clases = () => {
           }
       
     }
+    console.log(classesByDay);
 
     return (
         <View
@@ -343,7 +344,7 @@ const Clases = () => {
                                     {spliteado[2]}
                                 </Text>
                             </View></TouchableOpacity> ) : (<>
-                                <TouchableOpacity onPress={() => { classesByDay(Number(item.id) +1)  }}><View
+                                <TouchableOpacity onPress={() => { classesByDay(parseInt(item.id))  }}><View
                                 style={styles.calendario}
                             >
 
