@@ -176,8 +176,10 @@ const Home = ({item}) => {
                     ]
                   }]
                 }}
-                width={348}
-                height={197}
+                width={
+                  Dimensions.get("window").width
+                }
+                height={210}
                 yAxisSuffix="kg"
                 yAxisInterval={1}
                 chartConfig={{
@@ -199,9 +201,8 @@ const Home = ({item}) => {
                 bezier
                   style={{
                     marginVertical: 5,
-                    borderRadius: 18,
+                    borderRadius: 12,
                     marginTop: 15,
-                    paddingLeft: 15
                   }}
             />
 
@@ -225,81 +226,6 @@ const Home = ({item}) => {
                 </Text>
               </TouchableOpacity>
             </View>
-
-              <View
-                 style={styles.clasesContainer}
-              >
-                <View
-                    style={styles.containerHora}
-                >
-                  <Text
-                      style={styles.hora}  
-                  >
-                      07:00
-                  </Text>
-
-                  <TextInput
-                      style={styles.TextInput}
-                  />
-
-                  <Text
-                      style={styles.hora}  
-                  >
-                      08:00
-                  </Text>
-                </View>
-
-                <TouchableOpacity
-                    style={styles.TouchableOpacity}
-                    onPress={() => navigation.navigate("Instructor")}
-                >
-                  <View
-                    style={styles.containerText}
-                  >
-                    <Text
-                      style={styles.texto1}
-                    >
-                      ZUMBA Fitness
-                    </Text>
-                    <Text
-                      style={styles.texto2}
-                    >
-                      Fernando Valenzuela
-                    </Text>
-                    <View
-                style={{
-                  flex: 1,
-                  height: 80,
-                  width: 110,
-                  backgroundColor: '#fff',
-                  color: '#FFF',
-                  borderWidth: 1,
-                  borderRadius: 18,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  // marginLeft: 20,
-                  marginTop: 13,
-                }}
-              >
-                   <Text
-
-                  >
-                    LUN
-                  </Text> 
-                  <Text
-                  >
-                    22
-                  </Text>
-                  <Text
-                  >
-                    AGO
-                  </Text>
-                </View>
-                  </View>
-                </TouchableOpacity>
-                
-              
-              </View>
           </View>
         </View> 
       </ScrollView>

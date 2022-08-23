@@ -123,13 +123,14 @@ const styles = StyleSheet.create ({
 
   comprar: {
     color: '#FFF843',
-    textAlign: 'end',
+    textAlign: 'right',
     marginRight: 28,
-    marginTop: '5%',
-    marginBottom: 15,
+    marginTop: -15,
+    // marginBottom: 15,
     fontSize: 20,
+    fontWeight: '100',
     // fontFamily: 'Dosis_300Light',
-    borderTopColor: '#1C1B1B'
+    // borderTopColor: '#1C1B1B',
   },
 
 });

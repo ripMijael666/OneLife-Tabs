@@ -30,6 +30,7 @@ const ListImage = (item) => {
                     style={{
                         alignContent: 'center',
                         alignItems: 'center',
+                        marginTop: 30
                         // fontFamily: 'Dosis_200ExtraLight'
                     }}
                 >

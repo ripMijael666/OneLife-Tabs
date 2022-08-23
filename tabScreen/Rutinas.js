@@ -45,11 +45,7 @@ const Rutinas = () => {
                 data = { rutinasImage }
                 keyExtractor = { (item) => item.id}
                 renderItem = { ({ item }) => <PdfScreen item = { item } /> }
-                ItemSeparatorComponent = { () => <View 
-                    style = {{ 
-                        marginVertical: 15, 
-                    }} />}
-            />
+             />
         </View>
     )
 }

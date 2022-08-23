@@ -56,16 +56,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#1C1B1B',
         width: '100%',
         height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     subtitulo: {
         color: '#FFF843',
         // fontFamily: 'Dosis_200ExtraLight',
         padding: '7%',
         fontSize: 18,
-        textAlign: 'left',
-        marginVertical: -50,
-        marginLeft: '1%'
-
+        textAlign: 'center',
     }
 })
 

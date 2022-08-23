@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, ScrollView, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, ScrollView, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 // import { useFonts,
@@ -9,10 +9,188 @@ import { useNavigation } from "@react-navigation/native";
 //     Dosis_500Medium,
 //     Dosis_600SemiBold,
 //     Dosis_700Bold,
-//     Dosis_800ExtraBold 
+//     Dosis_800ExtraBold
 //   } from '@expo-google-fonts/dosis'
 
 const Clases = () => {
+
+    const listaHora = [
+        {
+            id: '0',
+            horaInicio: '07:00',
+            horaFinal: '08:00'
+        },
+
+        {
+            id: '1',
+            horaInicio: '07:00',
+            horaFinal: '08:00'
+        },
+
+        {
+            id: '2',
+            horaInicio: '07:00',
+            horaFinal: '08:00'
+        },
+
+        {
+            id: '3',
+            horaInicio: '07:00',
+            horaFinal: '08:00'
+        },
+
+        {
+            id: '4',
+            horaInicio: '07:00',
+            horaFinal: '08:00'
+        },
+
+        {
+            id: '5',
+            horaInicio: '07:00',
+            horaFinal: '08:00'
+        },
+
+        {
+            id: '6',
+            horaInicio: '07:00',
+            horaFinal: '08:00'
+        },
+    ]
+
+    const [listaClases, setListaClases] = useState( [
+        {
+            id: '0',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '1',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '2',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '3',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '4',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '5',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '6',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+    ]);
+
+
+    const listaClases2 = [
+        {
+            id: '0',
+            nombre: '222 Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '1',
+            nombre: '222 Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '2',
+            nombre: '2222 Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '3',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '4',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '5',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '6',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+    ];
+
+    const listaClases3 = [
+        {
+            id: '0',
+            nombre: '12131 Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '1',
+            nombre: '12312313 Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '2',
+            nombre: '1312313 Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '3',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '4',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '5',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+
+        {
+            id: '6',
+            nombre: 'ZUMBA Fitness',
+            instructor: 'Fernando Valenzuela'
+        },
+    ];
+
     const navigation = useNavigation();
     const [arregloDias, setArregloDias] = useState([])
     const formatDate = (date) => {
@@ -35,18 +213,58 @@ const Clases = () => {
     React.useEffect(() => {
 
 
-        const hoy = new Date();        
-        
+        const hoy = new Date();
+
         var arregloDiasA = [];
         const currentDay = hoy.getDate();
 
         for (let i = 0; i < 7; i++) {
-            arregloDiasA.push( { "id" : i, "date" :  formatDate(hoy.setDate( currentDay+ i))  } );            
+            arregloDiasA.push( { "id" : i, "date" :  formatDate(hoy.setDate( currentDay+ i))  } );
         }
 
         setArregloDias(arregloDiasA);
       },[]
     );
+
+    const classesByDay = async (fechaString) => {
+
+        if(fechaString == "MIE-24-AGO"){
+            setListaClases(listaClases2);
+        }
+
+        if(fechaString == "JUE-25-AGO"){
+            setListaClases(listaClases3);
+        }
+
+        try {
+
+            // var data = new FormData();
+            // data.append("date", fechaString);
+            // data.append("password", password);
+        
+            const response = await fetch(
+              'https://reqres.in/api/users?page=' + fechaString,
+              {
+                // method: 'POST',
+                // body: data
+                method: 'GET'
+              }
+            );
+            const json = await response.json();
+            console.log(json);
+
+            var listaDevuelta = [];
+            json.data.forEach(element => {
+                listaDevuelta.push({ "id" : element.id, "nombre" : element.first_name, "instructor" : element.email});
+            });
+
+            setListaClases(listaDevuelta);
+        
+          } catch (error) {
+            console.error(error);
+          }
+      
+    }
 
     return (
         <View
@@ -58,17 +276,17 @@ const Clases = () => {
                 >
                     <Text
                         style={styles.titulo}
-                    > 
+                    >
                         Clases
                     </Text>
 
                     <Text
                         style={styles.ciudad}
                     >
-                        Ciudad: CBBA    
+                        Ciudad: CBBA
                     </Text>
                 </View>
-                  
+
 
                 <FlatList
                     horizontal
@@ -81,8 +299,8 @@ const Clases = () => {
                         var fechastring = formatDate(fechaActual);
 
                         return (
-                            item.date == fechastring ?
-                            (<View 
+                            item.date == fechastring ?(
+                            <TouchableOpacity onPress={() => { classesByDay(Number(item.id) +1)  }}><View
                                 style={styles.hoy}
                             >
 
@@ -124,7 +342,8 @@ const Clases = () => {
                                 >
                                     {spliteado[2]}
                                 </Text>
-                            </View>) : (<><View 
+                            </View></TouchableOpacity> ) : (<>
+                                <TouchableOpacity onPress={() => { classesByDay(Number(item.id) +1)  }}><View
                                 style={styles.calendario}
                             >
 
@@ -146,7 +365,7 @@ const Clases = () => {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         fontSize: 38,
-                                        fontWeight: '400'
+                                        fontWeight: '400',
                                     }}
                                 >
                                     {spliteado[1]}
@@ -163,7 +382,7 @@ const Clases = () => {
                                 >
                                     {spliteado[2]}
                                 </Text>
-                            </View></>)
+                            </View></TouchableOpacity> </>)
                         )
 
                     }
@@ -171,339 +390,64 @@ const Clases = () => {
                 />
 
                 <View
-                    style={styles.clasesContainer}
+                    style= {{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}
                 >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
+                    <FlatList
+                        data={listaHora}
+                        keyExtractor={(item) => item.id}
+                        renderItem={({ item }) =>
+                            <View
+                                style={styles.containerHora}
+                            >
 
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
                                 <Text
-                                    style={styles.texto1}
+                                    style={styles.hora}
                                 >
-                                    ZUMBA Fitness
+                                    {item.horaInicio}
                                 </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
 
-                <View
-                    style={styles.clasesContainer}
-                >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
+                                <View
+                                    style={styles.TextInput}
+                                />
 
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
                                 <Text
-                                    style={styles.texto1}
+                                    style={styles.hora}
                                 >
-                                    ZUMBA Fitness
+                                    {item.horaFinal}
                                 </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
+                            </View>
+                        }
+                    />
 
-                <View
-                    style={styles.clasesContainer}
-                >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
+                    <FlatList
+                        data={listaClases}
+                        keyExtractor={(item) => item.id}
+                        renderItem={({ item }) =>
+                            <TouchableOpacity
+                                style={styles.TouchableOpacity}
+                                onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
+                            >
+                                <View
+                                    style={styles.containerText}
+                                >
+                                    <Text
+                                        style={styles.texto1}
+                                    >
+                                        {item.nombre}
+                                    </Text>
 
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
-                                <Text
-                                    style={styles.texto1}
-                                >
-                                    ZUMBA Fitness
-                                </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-                <View
-                    style={styles.clasesContainer}
-                >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
-
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
-                                <Text
-                                    style={styles.texto1}
-                                >
-                                    ZUMBA Fitness
-                                </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-                <View
-                    style={styles.clasesContainer}
-                >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
-
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
-                                <Text
-                                    style={styles.texto1}
-                                >
-                                    ZUMBA Fitness
-                                </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-                <View
-                    style={styles.clasesContainer}
-                >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
-
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
-                                <Text
-                                    style={styles.texto1}
-                                >
-                                    ZUMBA Fitness
-                                </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-                <View
-                    style={styles.clasesContainer}
-                >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
-
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
-                                <Text
-                                    style={styles.texto1}
-                                >
-                                    ZUMBA Fitness
-                                </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-
-                <View
-                    style={styles.clasesContainer}
-                >
-                    <View
-                        style={styles.containerHora}
-                    >
-                        <Text
-                            style={styles.hora}  
-                        >
-                            07:00
-                        </Text>
-                        <TextInput
-                            style={styles.TextInput}
-                        />
-                        <Text
-                            style={styles.hora}  
-                        >
-                            08:00
-                        </Text>
-                    </View>
-
-                    <TouchableOpacity
-                        style={styles.TouchableOpacity}
-                        onPress={() => navigation.navigate("Instructor", {fechastring: arregloDias})}
-                    >
-                        <View
-                            style={styles.containerText}
-                        >
-                                <Text
-                                    style={styles.texto1}
-                                >
-                                    ZUMBA Fitness
-                                </Text>
-                                <Text
-                                    style={styles.texto2}
-                                >
-                                    Fernando Valenzuela
-                                </Text>
-                        </View>
-                    </TouchableOpacity>
+                                    <Text
+                                        style={styles.texto2}
+                                    >
+                                        {item.instructor}
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        }
+                    />
                 </View>
             </ScrollView>
         </View>
@@ -522,39 +466,35 @@ const styles = StyleSheet.create({
         borderRadius: 12
     },
     clasesContainer: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         justifyContent: 'space-between',
     },
     texto2: {
         color: '#FFFFFF',
         fontSize: 15,
         fontWeight: '100',
-        paddingRight: '35%'
-    }, 
+        textAlign: 'left',
+        padding: 5
+    },
     texto1: {
         color: '#FFF843',
         fontSize: 25,
         fontWeight: '500',
-        paddingRight: '20%'
-    },  
+        paddingRight: '20%',
+        padding: 5
+    },
     containerText: {
         flex: 1,
         height: 80,
-        // width: 0,
         borderColor: '#FFF843',
         borderWidth: 1,
-        borderRadius: 12, 
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 20,
-        marginRight: 20,
-        marginTop: 20
+        borderRadius: 12,
+        marginLeft: 5,
+        marginRight: 18,
+        marginTop: 28
     },
     containerHora: {
-        marginTop: 20,
-        marginLeft: 20,
-        marginRight: 20,
-        justifyContent: 'center',
+        marginTop: 28,
         alignItems: 'center',
     },
     hora: {
@@ -574,7 +514,7 @@ const styles = StyleSheet.create({
         // fontFamily: 'Dosis_400Regular'
     },
     encabezado: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 5,
     },
@@ -589,15 +529,15 @@ const styles = StyleSheet.create({
     calendario: {
         flex: 1,
         height: 90,
-        width: 80,
+        width: 90,
         borderColor: '#FFF843',
         color: '#FFF',
         borderWidth: 1,
-        borderRadius: 18, 
+        borderRadius: 18,
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 20,
-        marginTop: 25
+        marginTop: 20
     },
     hoy: {
         flex: 1,
@@ -606,7 +546,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         color: '#FFF',
         borderWidth: 1,
-        borderRadius: 18, 
+        borderRadius: 18,
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 20,
