@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Context as AuthContext } from '../context/AuthContext';
 import {
   View,
@@ -6,12 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
-  StatusBar,
   Image,
   SafeAreaView,
-  ScrollView,
   TextInput,
-  Alert
 } from "react-native";
 
 function LogIn() {

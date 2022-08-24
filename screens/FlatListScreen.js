@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 

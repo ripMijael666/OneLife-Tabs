@@ -1,8 +1,5 @@
 import createDataContext from './createDataContext';
 import * as SecureStore from 'expo-secure-store';
-import { useNavigation } from '@react-navigation/native';
-import App from '../App';
-import Home from '../tabScreen/Home';
 import { Alert } from 'react-native';
 
 const authReducer = (state, action) => {

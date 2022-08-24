@@ -1,20 +1,15 @@
 import React from "react";
 import { 
   View,
-  Text, 
   StyleSheet, 
-  TouchableOpacity, 
   SafeAreaView, 
-  ScrollView
 } from "react-native";
 import { FlatList } from 'react-native'
 import Medidas from './Medidas'
-import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from "@react-navigation/native";
-import Home from "../tabScreen/Home";
+// import { useNavigation } from "@react-navigation/native";
 
 const ListaMedidas = () => {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
     const listausuarios = [
       {
         id: '1',
@@ -56,25 +51,6 @@ const ListaMedidas = () => {
     >
 
 
-
-      {/* <ScrollView>
-        <View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
-          >
-            <AntDesign name="left" size={50} color="#FFF843" />
-          </TouchableOpacity>
-          <Text 
-            style={styles.titulo}
-          >
-            Medidas
-          </Text>
-        </View> */}
-      
-
-
-
-
       <FlatList
         data = {listausuarios}
         keyExtractor = {(item) => item.id}
@@ -84,7 +60,6 @@ const ListaMedidas = () => {
               marginVertical: 10, 
           }} />}
       />
-      {/* </ScrollView> */}
     </SafeAreaView>  
   )  
 };

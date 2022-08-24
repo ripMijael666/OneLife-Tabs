@@ -114,7 +114,7 @@ const styles = StyleSheet.create ({
 
   comprar: {
     color: '#FFF843',
-    textAlign: 'end',
+    alignItems: 'flex-end',
     marginRight: 28,
     marginTop: '5%',
     marginBottom: 15,

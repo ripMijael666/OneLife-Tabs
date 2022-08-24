@@ -8,10 +8,6 @@ import * as SecureStore from 'expo-secure-store';
 
 import {Provider as AuthProvider} from './context/AuthContext.js';
 import {Context as AuthContext} from './context/AuthContext';
-// import {Icon} from 'react-native-elements';
-
-
-// import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -25,9 +21,7 @@ import RutinasScreen from './screens/RutinasScreen.js';
 import PdfScreen from './screens/PdfScreen.js';
 import Clases from './tabScreen/Clases.js';
 import Instructor from './screens/Instructor.js';
-import SesionesProps from './Sesiones/SesionesProps.js';
 import SesionesList from './tabScreen/SesionesList.js';
-// import SesionesScreen from './screens/SesionesScreen.js';
 import PlanMensual from './Sesiones/PlanMensual.js';
 import ComprarPlan from './Sesiones/ComprarPlan.js';
 
@@ -212,7 +206,7 @@ function App() {
 
               <Stack.Screen
                 options={{headerShown: false}}
-                name="Home"
+                name="HomeFlow"
                 component={HomeFlow}
               />
 

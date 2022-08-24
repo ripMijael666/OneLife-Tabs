@@ -1,5 +1,5 @@
 import React from "react";
-import { View,Text, StyleSheet, TouchableOpacity, SafeAreaView } from "react-native";
+import { View,Text, StyleSheet, SafeAreaView } from "react-native";
 
 
 const SesionesProps = ({item}) => {
@@ -59,10 +59,10 @@ const styles = StyleSheet.create ({
     backgroundColor: '#1C1B1B',
   },
   start: {
-    textAlign: 'star',
+    alignItems: 'flex-start'
   },
   end: {
-    textAlign: 'end',
+    alignItems: 'flex-end'
   },
   fecha: {
     marginLeft: 35,

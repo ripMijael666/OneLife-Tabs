@@ -8,7 +8,6 @@ import {
   FlatList, 
   ScrollView 
 } from "react-native";
-// import Sesiones from "../components/Sesiones";
 import SesionesProps from "../Sesiones/SesionesProps";
 
 // import { useFonts,

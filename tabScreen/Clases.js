@@ -1,7 +1,6 @@
-import React, { useState, useRef, useCallback } from "react";
-import { View, Text, StyleSheet, TextInput, ScrollView, FlatList, TouchableOpacity, Alert } from "react-native";
+import React, { useState, useRef } from "react";
+import { View, Text, StyleSheet, ScrollView, FlatList, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useFocusEffect } from "@react-navigation/native";
 
 // import { useFonts,
 //     Dosis_200ExtraLight,
@@ -21,13 +20,6 @@ const Clases = () => {
         let index = 3
         flatlistRef.current.scrollToIndex({ animated: true, index: index })
     }
-    // useFocusEffect(
-    //     useCallback(() => {
-    //       scrollToIndex()
-    //     }, [])
-    //   )
-      
-
     const listaHora = [
         {
             id: '0',
@@ -251,10 +243,6 @@ const Clases = () => {
         }
 
         try {
-
-            // var data = new FormData();
-            // data.append("date", fechaString);
-            // data.append("password", password);
         
             const response = await fetch(
               'https://reqres.in/api/users?page=' + fechaString,
@@ -285,7 +273,7 @@ const Clases = () => {
         <View
             style={styles.container}
         >
-            <ScrollView>
+            <View>
                 <View
                     style={styles.encabezado}
                 >
@@ -472,7 +460,7 @@ const Clases = () => {
                         }
                     />
                 </View>
-            </ScrollView>
+            </View>
         </View>
     )
 }

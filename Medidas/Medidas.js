@@ -68,13 +68,8 @@ const styles = StyleSheet.create ({
   },
   informacion: {
     flex: 1,
-    // display: 'grid',
-    // gridTemplateColumns: '45% 55%' 
     flexDirection: 'row',
   },
-  // start: {
-  //   textAlign: 'star',
-  // },
   end: {
     alignItems: 'flex-start',
     marginLeft: 50

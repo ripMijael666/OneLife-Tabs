@@ -1,8 +1,6 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
-import { AntDesign } from '@expo/vector-icons';
 
 import ListImageRutinas from '../components/ListImageRutinas'
 
