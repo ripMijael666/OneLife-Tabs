@@ -13,6 +13,9 @@ import { useNavigation } from "@react-navigation/native";
 //   } from '@expo-google-fonts/dosis'
 
 const Clases = () => {
+
+    const navigation = useNavigation();
+
     const flatlistRef = useRef()
 
     const scrollToIndex = () => {
@@ -197,7 +200,7 @@ const Clases = () => {
         },
     ];
 
-    const navigation = useNavigation();
+
     const [arregloDias, setArregloDias] = useState([])
     const formatDate = (date) => {
         let d = new Date(date);
